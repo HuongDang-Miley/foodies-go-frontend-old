@@ -1,0 +1,874 @@
+{
+  "html_attributions": [],
+  "results": [
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6772299,
+                  "lng": -73.96351709999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.67857092989272,
+                      "lng": -73.96223787010726
+                  },
+                  "southwest": {
+                      "lat": 40.67587127010727,
+                      "lng": -73.96493752989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Stocked Burger",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 3072,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/103341961241246515582\">A Google User</a>"
+                  ],
+                  "photo_reference": "ATtYBwJStNWO2ywR22VFtWIw1Q0l4eJwyyPAjqOgq5pFps5BSjIOmrIku_3I5nNx6zbmA8tb2j6u9dPQHz8k2CO6HwSXaGsn81FaQD-Qb9K9brc9XwT2iBohMpc0tYCehdwnzsS4THViUEOF6fJ9jsMwA7M2MDwwGV6Goy2GeayJv3qmX9Jh",
+                  "width": 4608
+              }
+          ],
+          "place_id": "ChIJDyYAz7xbwokRz3JRVJU7s6Q",
+          "plus_code": {
+              "compound_code": "M2GP+VH New York, United States",
+              "global_code": "87G8M2GP+VH"
+          },
+          "rating": 4.5,
+          "reference": "ChIJDyYAz7xbwokRz3JRVJU7s6Q",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 97,
+          "vicinity": "663 Washington Ave #1, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.67233969999999,
+                  "lng": -73.96065829999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.67361272989272,
+                      "lng": -73.95933687010726
+                  },
+                  "southwest": {
+                      "lat": 40.67091307010728,
+                      "lng": -73.96203652989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Burger Ur Way",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 4032,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/105496243100409024471\">Andes Payne</a>"
+                  ],
+                  "photo_reference": "ATtYBwLSgPJXw-Ezyf1nZ6rjJGIfZC48wl9mHFne9PW0BItD_JNFe48bp8odgcWrKrWRpPl4bo9gX0C8hyeUbkV5Z08LzFylzeq6ZzLDAy4A9JJnmiT_ExTXQdH0EEvWQKIYMXYDIew1nAW_pPW3m9CKVzMI_FZzHXbCf-uIsiDAv9VwF-c-",
+                  "width": 3024
+              }
+          ],
+          "place_id": "ChIJhQtxowpbwokRyxZVaRmACm8",
+          "plus_code": {
+              "compound_code": "M2CQ+WP Brooklyn, New York, United States",
+              "global_code": "87G8M2CQ+WP"
+          },
+          "price_level": 1,
+          "rating": 4.1,
+          "reference": "ChIJhQtxowpbwokRyxZVaRmACm8",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 121,
+          "vicinity": "465 Lincoln Pl, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6829903,
+                  "lng": -73.93844609999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.68440752989272,
+                      "lng": -73.93709957010728
+                  },
+                  "southwest": {
+                      "lat": 40.68170787010727,
+                      "lng": -73.93979922989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "The Stuy Burgers",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 4032,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/107223807679397850024\">Elena Haskins</a>"
+                  ],
+                  "photo_reference": "ATtYBwK3KhjbYOYnW3RSzZU4U1STcencRNI4pMn3zMt8d2Jj47sfJ_Lwcj5aMIFbG315yl7EFfNnpDwYPA6_GkHprVNsGychG7I3ol6xi1E_uBTOkBzZBzkO7CkUdY98IAZy9EsRP7ahh5TCZcLJIkD8taYPePigrw_osEp4d1oSw2jKcSmo",
+                  "width": 1960
+              }
+          ],
+          "place_id": "ChIJuZC7mtRbwokRjzmVQ27qeOA",
+          "plus_code": {
+              "compound_code": "M3M6+5J New York, United States",
+              "global_code": "87G8M3M6+5J"
+          },
+          "rating": 5,
+          "reference": "ChIJuZC7mtRbwokRjzmVQ27qeOA",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 20,
+          "vicinity": "392 Halsey St, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.669588,
+                  "lng": -73.93353399999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.67093782989271,
+                      "lng": -73.93218417010728
+                  },
+                  "southwest": {
+                      "lat": 40.66823817010727,
+                      "lng": -73.93488382989273
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Kansas Chicken & Burger",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 2048,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/111813429539704498168\">A Google User</a>"
+                  ],
+                  "photo_reference": "ATtYBwKpVJGoakwEGmrHzTfiZKSoR_U6aQ7DpAyEIQc2GyYStCMVmZlLV90yQ3henhGc75S8K7JFb7Z__uVd2hOu-LrNxiHSxKbDtrSCtreSc1rNHVL3292ENVaFjwNdUqI0cQrrtGB_VC8iAXSLnuXX1xLRRKN47YtjQstU1kaIsZqTy1Zf",
+                  "width": 1365
+              }
+          ],
+          "place_id": "ChIJNbfZ0X9cwokRbFlMnUJ-CiA",
+          "plus_code": {
+              "compound_code": "M398+RH Brooklyn, New York, United States",
+              "global_code": "87G8M398+RH"
+          },
+          "rating": 4.5,
+          "reference": "ChIJNbfZ0X9cwokRbFlMnUJ-CiA",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 74,
+          "vicinity": "263 Schenectady Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6802225,
+                  "lng": -73.9613719
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.68157232989272,
+                      "lng": -73.96002207010727
+                  },
+                  "southwest": {
+                      "lat": 40.67887267010727,
+                      "lng": -73.96272172989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Best Burger Palace",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 4672,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/100889845367950109186\">ANDREY ROMERO</a>"
+                  ],
+                  "photo_reference": "ATtYBwK6JJ_ZV3OPc6pvLfzPR4Q1yIvkAuhYTDIEfd9Fr5TEXZZ3JaQAf5Wiwex-7x9VLKhylWeziNugUUEGa-9HGSoHhzyDwWfttVXX0in_KVqgZsfqjPPnId7gFWCzLOyr1ibVuAn9jswUsqkuYOuZwIWcYE38e-rzD9SGwlG2NNL715M8",
+                  "width": 2624
+              }
+          ],
+          "place_id": "ChIJ47vTXqJbwokRRbczMn8eC9M",
+          "plus_code": {
+              "compound_code": "M2JQ+3F Brooklyn, New York, United States",
+              "global_code": "87G8M2JQ+3F"
+          },
+          "price_level": 1,
+          "rating": 4.2,
+          "reference": "ChIJ47vTXqJbwokRRbczMn8eC9M",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 55,
+          "vicinity": "986 Atlantic Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6557054,
+                  "lng": -73.94211419999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.65713972989271,
+                      "lng": -73.94077422010727
+                  },
+                  "southwest": {
+                      "lat": 40.65444007010727,
+                      "lng": -73.94347387989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Burger UrWay la bella pizzeria",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3072,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/104557175134280980470\">A Google User</a>"
+                  ],
+                  "photo_reference": "ATtYBwL3Fi8LRorvrihFbL23o1zUcitMSKrdj4ltqkdcE4YMI4cYl1GsAmmqV8dRSvn_8SlnCTvRRNKLtnWUlwUnaGYWxy--Y54-kJTVJitlwgTLZsn8h64SJCWhpIa_Kjv0rO4F5Lw4XfJS2yWLRyQHccwyJvECKWocdzjIhXxfu314hGSW",
+                  "width": 4096
+              }
+          ],
+          "place_id": "ChIJ055KBmRbwokRNaUaK5MaqIY",
+          "plus_code": {
+              "compound_code": "M345+75 Brooklyn, New York, United States",
+              "global_code": "87G8M345+75"
+          },
+          "rating": 3.5,
+          "reference": "ChIJ055KBmRbwokRNaUaK5MaqIY",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 154,
+          "vicinity": "528 Clarkson Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6641275,
+                  "lng": -73.9570145
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66541857989272,
+                      "lng": -73.95579027010729
+                  },
+                  "southwest": {
+                      "lat": 40.66271892010727,
+                      "lng": -73.95848992989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Burger King",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 702,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/116058247387027512450\">Burger King</a>"
+                  ],
+                  "photo_reference": "ATtYBwJyUNLzAnfj6zm9Cm4-TQtHqav_yEgAl6pNfp3dD7hFW3JVfMU984kXhN7I4mvpVL6Y59BTXg2tfu_Ck-_2Id4m4jZC7-RMlNElVyDh7yWws0cbyNXq4dZxHmv65RLnxtbk3zOWkdCA4ikI8LAqKvPFSyWZCZhne2nKCDQX2aIXKcv3",
+                  "width": 870
+              }
+          ],
+          "place_id": "ChIJV2Ut8XJbwokR1r7LPQDZBqk",
+          "plus_code": {
+              "compound_code": "M27V+M5 New York, United States",
+              "global_code": "87G8M27V+M5"
+          },
+          "price_level": 1,
+          "rating": 3.9,
+          "reference": "ChIJV2Ut8XJbwokR1r7LPQDZBqk",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 576,
+          "vicinity": "1727 Bedford Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6617093,
+                  "lng": -73.93178
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66305267989272,
+                      "lng": -73.93029707010727
+                  },
+                  "southwest": {
+                      "lat": 40.66035302010728,
+                      "lng": -73.93299672989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Island Burger",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/112426114389385432235\">A Google User</a>"
+                  ],
+                  "photo_reference": "ATtYBwKGS1cqnbbM-GEhxhuRrhpkrut6S5Kq7CLMmQldAD_uRIzd7mLErl7nJZdxXXlVxBeZlXzNa_M1JZSVOMp9RmIqM_K_3xV7p-UQ52qf4c1PNkLxtYxudp5kKfsYb3tzs8_rC62UE3LJhMYiVMH9krdRBbpq5xgDTrygwknpXXEsaFaG",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJycIJ05hcwokR_uUpBeAHhWA",
+          "plus_code": {
+              "compound_code": "M369+M7 Brooklyn, New York, United States",
+              "global_code": "87G8M369+M7"
+          },
+          "price_level": 1,
+          "rating": 3.9,
+          "reference": "ChIJycIJ05hcwokR_uUpBeAHhWA",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 1000,
+          "vicinity": "504 Utica Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6804976,
+                  "lng": -73.9493262
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.68178747989271,
+                      "lng": -73.94798052010728
+                  },
+                  "southwest": {
+                      "lat": 40.67908782010727,
+                      "lng": -73.95068017989273
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Burger King",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 702,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/104949216053117178976\">Burger King</a>"
+                  ],
+                  "photo_reference": "ATtYBwJ9IauePy3rbppZ6xEEncUgRiiDfIH6NNOKiExl8BWQo-mvFCoYBnVyNVOH6IXQo9ZcfjZ606WQo66sCbqo6USxqwm4FqfOr6LDkvp34RH-j6fXSNjVEnwD-t3Mshx_wprOJoiSurXKvcPuJndBpknRxcIi5jG_0NW_f0R_HVXNXelo",
+                  "width": 870
+              }
+          ],
+          "place_id": "ChIJITc4mJpbwokR7uT2KPPbVtg",
+          "plus_code": {
+              "compound_code": "M3J2+57 New York, United States",
+              "global_code": "87G8M3J2+57"
+          },
+          "price_level": 1,
+          "rating": 3.6,
+          "reference": "ChIJITc4mJpbwokR7uT2KPPbVtg",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 637,
+          "vicinity": "1297 Fulton St, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6786587,
+                  "lng": -73.949557
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.67999492989273,
+                      "lng": -73.94826287010727
+                  },
+                  "southwest": {
+                      "lat": 40.67729527010728,
+                      "lng": -73.95096252989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Texas Chicken & Burgers",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 1152,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/105571809060571774037\">Texas Chicken &amp; Burgers</a>"
+                  ],
+                  "photo_reference": "ATtYBwKNOna-Y8Nr61DC4EeMniuW7v4gaEnc8G3uK9CABRTBY5TGmimYBNB3PeuI6hOKVVvdK-ALUd9yaS_12I0w7wSHjeZ2cwcyH36xZBiSpw88HP2OW5_FQZ58REABTHsW2EtpvEHCNghHLSeEIB4OLT6beS_At-OQWD2nGfkiyQrYB6Rz",
+                  "width": 2048
+              }
+          ],
+          "place_id": "ChIJRdcL4ppbwokR3eMD_cSkYmE",
+          "plus_code": {
+              "compound_code": "M3H2+F5 Brooklyn, New York, United States",
+              "global_code": "87G8M3H2+F5"
+          },
+          "price_level": 1,
+          "rating": 3.9,
+          "reference": "ChIJRdcL4ppbwokR3eMD_cSkYmE",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 389,
+          "vicinity": "551 Nostrand Ave., Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6635996,
+                  "lng": -73.9607936
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66486477989272,
+                      "lng": -73.95941752010727
+                  },
+                  "southwest": {
+                      "lat": 40.66216512010728,
+                      "lng": -73.96211717989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Checkers",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 3648,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/105296659764938815209\">Checkers</a>"
+                  ],
+                  "photo_reference": "ATtYBwIZbp2HEXGPibyr_52mLuvdw99uarXvV7_r6cfo7A4W-UZx3QkEaBWqp_50aWRdIH83c8Ta_XWlunYwCo0ZU5csFVh5NqFudcc4qPahVjtpThH7bWqHoc9JbYxX70fkyW7_UsgIXiZFD6SyezmK3J-U6L8F7xpQy7MExcw9AdOMBqA",
+                  "width": 3648
+              }
+          ],
+          "place_id": "ChIJKQ3DXQ1bwokReaITtMng3ss",
+          "plus_code": {
+              "compound_code": "M27Q+CM New York, United States",
+              "global_code": "87G8M27Q+CM"
+          },
+          "price_level": 1,
+          "rating": 3.7,
+          "reference": "ChIJKQ3DXQ1bwokReaITtMng3ss",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 325,
+          "vicinity": "43 Empire Blvd, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6835694,
+                  "lng": -73.9664327
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.68483387989272,
+                      "lng": -73.96510092010729
+                  },
+                  "southwest": {
+                      "lat": 40.68213422010727,
+                      "lng": -73.96780057989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Emily",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/100149294590371446328\">Sharon S</a>"
+                  ],
+                  "photo_reference": "ATtYBwJOnVxbvfcXhDhf5tqe2iOiWMIbQb-8vdchE8qHQd_6a5YVNCuCfkyzBu92MdlqrTPoZWd3K6EBdg_qNeL0k2LtbZqiV92Afov0IfiPi8PaW6ktO31EtQmaeFkFVEDEzrSJ1FiJlt8zTDoKcECp-RZVzps-7JpVl9T1WDFGbRB5xRlz",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJYeJEs6RbwokRI9OjBP6hYG8",
+          "plus_code": {
+              "compound_code": "M2MM+CC Brooklyn, New York, United States",
+              "global_code": "87G8M2MM+CC"
+          },
+          "price_level": 2,
+          "rating": 4.5,
+          "reference": "ChIJYeJEs6RbwokRI9OjBP6hYG8",
+          "scope": "GOOGLE",
+          "types": [
+              "meal_delivery",
+              "meal_takeaway",
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 1186,
+          "vicinity": "919 Fulton St, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6629397,
+                  "lng": -73.9616985
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66431042989272,
+                      "lng": -73.9603199201073
+                  },
+                  "southwest": {
+                      "lat": 40.66161077010727,
+                      "lng": -73.96301957989273
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Wendy's",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 420,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/115376293803172119508\">Dawood Khan</a>"
+                  ],
+                  "photo_reference": "ATtYBwL9G_bjqi4BpmgJDP1s9qEJg0Yqh4BZeNWtK2McAdKGFYvz7bjKpJ1nAoTW5WsjHacVbKLzWcmSLgRoI3MEK0cz_QWWKST5Do9MZ2igYmEKLGLCaIkHdattrlSYJCh0pEGfAzJryhPdLdy7cLXQDXNNYN-YQjeHlpCUdqcsVVUjs3Wb",
+                  "width": 350
+              }
+          ],
+          "place_id": "ChIJu-DUghJbwokRLK0z8dgknvs",
+          "plus_code": {
+              "compound_code": "M27Q+58 New York, United States",
+              "global_code": "87G8M27Q+58"
+          },
+          "price_level": 1,
+          "rating": 3.8,
+          "reference": "ChIJu-DUghJbwokRLK0z8dgknvs",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 2291,
+          "vicinity": "469 Flatbush Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6637266,
+                  "lng": -73.96006269999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66497192989272,
+                      "lng": -73.95873517010727
+                  },
+                  "southwest": {
+                      "lat": 40.66227227010727,
+                      "lng": -73.96143482989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "McDonald's",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 768,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/109152085744152410199\">McDonald&#39;s</a>"
+                  ],
+                  "photo_reference": "ATtYBwKGwdNfdd_1wwFirjV-jmyxJa-65--Gcd2oTT7BoJeSoyIqkUoH9Hzs9bjQk3pNFo-car1Pa7WCUWoEz1PaeP12DxgxGd0gglprDxRIOhqOibIID4n0_xQ1KqG9lIyvPuLRtnOK51AuMJ_JWwqyHJcV4y0pBF1cCM_rUV6DJqF7Eg4",
+                  "width": 1025
+              }
+          ],
+          "place_id": "ChIJg0sUv0BbwokRHyeOAXkgKdA",
+          "plus_code": {
+              "compound_code": "M27Q+FX New York, United States",
+              "global_code": "87G8M27Q+FX"
+          },
+          "price_level": 1,
+          "rating": 3.7,
+          "reference": "ChIJg0sUv0BbwokRHyeOAXkgKdA",
+          "scope": "GOOGLE",
+          "types": [
+              "cafe",
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "store",
+              "establishment"
+          ],
+          "user_ratings_total": 1449,
+          "vicinity": "57 Empire Blvd, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.67998660000001,
+                  "lng": -73.9465658
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.68145162989273,
+                      "lng": -73.94511347010727
+                  },
+                  "southwest": {
+                      "lat": 40.67875197010729,
+                      "lng": -73.94781312989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Applebee's Grill + Bar",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 1080,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/118250162434182967421\">Applebee&#39;s</a>"
+                  ],
+                  "photo_reference": "ATtYBwJ9KsGhNsQkUM-LgiYh-grrcm7rhyh_c2SsaUDS4C3kUmeMf1fB9Vqo_nvZNfDIQMuERINcLADeTZJ7mIvIeE0YigCF-nW67vau98Z4hCzl2HcLKxvvTwnb_0Ap5XndgYS3ufOD9jBiy6JmAkvHFYB-cEmq7b_DKIM2RjRlNxdmcHSf",
+                  "width": 1080
+              }
+          ],
+          "place_id": "ChIJk82yXIVbwokRaeIXP40-xCU",
+          "plus_code": {
+              "compound_code": "M3H3+X9 New York, United States",
+              "global_code": "87G8M3H3+X9"
+          },
+          "price_level": 2,
+          "rating": 3.4,
+          "reference": "ChIJk82yXIVbwokRaeIXP40-xCU",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "bar",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 1656,
+          "vicinity": "1360 Fulton St, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.66811440000001,
+                  "lng": -73.93143529999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.66945857989272,
+                      "lng": -73.92996597010726
+                  },
+                  "southwest": {
+                      "lat": 40.66675892010728,
+                      "lng": -73.93266562989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Burger King",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 702,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/105012268376530865054\">A Google User</a>"
+                  ],
+                  "photo_reference": "ATtYBwLjiI6-gNT14rEF_KfY3vaOUbUzrhOb6i-F9xisoDltZCk6N0eNlT-rjfe3ZYWRJzD0GXIsRQefEFbMHN0TGymF3LguIH0y-a65wUXFYPcIhB4lNr6Gbb4xPRoj98l7fCxU8ezG9XpT_5fZv8NyoPqr0WHaN23B9cqYVcjWYJNEHQBj",
+                  "width": 870
+              }
+          ],
+          "place_id": "ChIJ696Je-NdwokRRTcrWYcTcec",
+          "plus_code": {
+              "compound_code": "M399+6C New York, United States",
+              "global_code": "87G8M399+6C"
+          },
+          "price_level": 1,
+          "rating": 3.8,
+          "reference": "ChIJ696Je-NdwokRRTcrWYcTcec",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 176,
+          "vicinity": "292 Utica Ave, Brooklyn"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 40.6749211,
+                  "lng": -73.95660079999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 40.67625272989272,
+                      "lng": -73.95517657010727
+                  },
+                  "southwest": {
+                      "lat": 40.67355307010727,
+                      "lng": -73.9578762298927
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "name": "Mayfield",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/111143370856483078960\">Matteo Ruggiu</a>"
+                  ],
+                  "photo_reference": "ATtYBwJ6XbUaoflLMpid1k4lG7NY4LTlp_svVeaHmmiTT2jzDG5GQyyjfTusoK39iHBFjQoiqkfGzO-RRHQWpF7RU167ppgmbVpRsbrZsCjQRIDq-brtOsLMLhmrmKdfG0bntCpBsE7fOMlKFvabcAWVqm7MyH4RIa-WpeRmLA3cS2KxW0jk",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJn9vfAZ9bwokRCoHThnYzu6M",
+          "plus_code": {
+              "compound_code": "M2FV+X9 New York, United States",
+              "global_code": "87G8M2FV+X9"
+          },
+          "price_level": 2,
+          "rating": 4.5,
+          "reference": "ChIJn9vfAZ9bwokRCoHThnYzu6M",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "user_ratings_total": 610,
+          "vicinity": "688 Franklin Ave, Brooklyn"
+      }
+  ],
+  "status": "OK"
+}
