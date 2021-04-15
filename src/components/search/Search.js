@@ -1,11 +1,12 @@
-import React, { useRef, useEffect } from 'react'
-import { test, nearbySearch } from '../../stores/actions/searchActionCreator'
+import React, { useRef } from 'react'
 
 export default function Search(props) {
+    console.log('prop in search ',props.togglePlaceDetail)
     let searchRef = useRef()
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        props.togglePlaceDetail(false)
         props.nearbySearch(searchRef.current.value)
         searchRef.current.value = ''
     }
@@ -16,9 +17,8 @@ export default function Search(props) {
                 <input
                     ref={searchRef}
                     placeholder='Search Place'></input>
-                <button onClick={() => console.log(searchRef.current.value)}>Search</button>
+                <button>Search</button>
             </form>
-            <span>{props.state.places.length} Result</span>
         </div>
     )
 }

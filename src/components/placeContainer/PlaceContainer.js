@@ -2,7 +2,7 @@ import React from 'react'
 import './placeContainer.css'
 
 export default function PlaceContainer(props) {
-    console.log('props from place card', props)
+    // console.log('props from place card', props)
 
     return (
         <div className='place-container'>

@@ -5,17 +5,17 @@ import Map2 from './components/map/Map2.js'
 import Search from './components/search/Search.js'
 import Sidebar from './components/sidebar/Sidebar.js'
 import { connect } from "react-redux";
-import { nearbySearch, test } from './stores/actions/searchActionCreator'
+import { nearbySearch, test, placeDetail , togglePlaceDetail} from './stores/actions/searchActionCreator'
 
 function Home(props) {
-    // console.log('props in Home', props)
+    console.log('props in Home', props)
     return (
         <div>
             <div className='topNav-wrapper'>
                 <Search
                     state={props.state}
                     nearbySearch={props.nearbySearch}
-                    test={props.test}
+                    togglePlaceDetail={props.togglePlaceDetail}
                 // getVenues={props.getVenues}
                 />
             </div>
@@ -33,7 +33,10 @@ function Home(props) {
             {props.state.places.length === 0
                 ? null
                 : <div className='sidebar-wrapper'>
-                    <Sidebar state={props.state} />
+                    <Sidebar
+                        togglePlaceDetail={props.togglePlaceDetail}
+                        placeDetail={props.placeDetail}
+                        state={props.state} />
                 </div>
             }
         </div>
@@ -46,4 +49,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { test, nearbySearch })(Home)
+export default connect(mapStateToProps, { test, nearbySearch, placeDetail , togglePlaceDetail})(Home)

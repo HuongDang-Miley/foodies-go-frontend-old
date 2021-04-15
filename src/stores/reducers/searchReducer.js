@@ -1,18 +1,24 @@
 
 const initialState = {
     places: [],
-    text: 'initial text'
+    placeDetail: {},
+    showPlaceDetail: false
 }
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "TEST":
-            console.log('action', action)
+        case 'TOGGLE_PLACE_DETAIL':
+            console.log(action)
             return {
                 ...state,
-                text: action.text
+                showPlaceDetail: action.showPlaceDetail
             }
-
+        case 'SHOW_PLACE_DETAIL':
+            console.log(action)
+            return {
+                ...state,
+                placeDetail: action.placeDetail
+            }
         case 'SHOW_NEARBY_SEARCH':
             console.log('show all result in reducer', action)
             return {
