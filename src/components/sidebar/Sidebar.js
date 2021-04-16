@@ -4,27 +4,26 @@ import PlaceDetail from '../placeDetail/PlaceDetail'
 import './sidebar.css'
 
 export default function Sidebar(props) {
-    console.log('props in sidebar', props.state.places.length)
-
+    console.log('props in sidebar', props.searchResults)
 
     const handleShowPlaceDetail = (id) => {
         props.togglePlaceDetail(true)
-        props.placeDetail(id)
+        props.getPlaceDetail(id)
     }
 
     return (
         <>
-            {props.state.showPlaceDetail ?
+            {props.searchResults.showPlaceDetail ?
                 <PlaceDetail
-                    placeDetail={props.state.placeDetail}
+                    placeDetail={props.searchResults.placeDetail}
                     togglePlaceDetail={props.togglePlaceDetail}
                 />
                 : <>
-                    <div className='filter-bar'>{props.state.places.length} Results</div>
-                    {props.state.places.map(place =>
-                        <div 
-                        onClick={() => handleShowPlaceDetail(place.place_id)}
-                        onMouseEnter={()=>console.log('mouse enter')}
+                    <div className='filter-bar'>{props.searchResults.places.length} Results</div>
+                    {props.searchResults.places.map(place =>
+                        <div
+                            onClick={() => handleShowPlaceDetail(place.place_id)}
+                            onMouseEnter={() => console.log('mouse enter')}
                         >
                             <PlaceContainer
                                 key={place.place_id} place={place} />

@@ -4,12 +4,20 @@ import './index.css';
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
+import {combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'; 
 
 import searchReducer from './stores/reducers/searchReducer.js'
+import authReducer from './stores/reducers/authReducer.js'
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const rootStore = createStore(searchReducer, composeEnhancers(applyMiddleware(thunk)))
+
+const rootReducer = combineReducers({
+    searchReducer: searchReducer,
+    authReducer: authReducer,
+  })
+
+const rootStore = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <React.StrictMode>

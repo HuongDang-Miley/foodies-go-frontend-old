@@ -1,13 +1,13 @@
 import React, { useRef } from 'react'
 
 export default function Search(props) {
-    console.log('prop in search ',props.togglePlaceDetail)
+    // console.log('prop in search ',props.togglePlaceDetail)
     let searchRef = useRef()
 
     const handleSubmit = (event) => {
         event.preventDefault()
         props.togglePlaceDetail(false)
-        props.nearbySearch(searchRef.current.value)
+        props.getNearbySearch(searchRef.current.value)
         searchRef.current.value = ''
     }
 
