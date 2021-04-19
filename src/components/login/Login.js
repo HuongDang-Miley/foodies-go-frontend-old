@@ -1,43 +1,51 @@
-import React, { useRef } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Link, useHistory } from 'react-router-dom'
-// import { register } from '../../stores/actions/authActionCreator'
+import React, { useRef, useEffect, useState } from 'react'
+import { Link, Redirect, useHistory } from 'react-router-dom'
+import { login } from '../../stores/actions/authActionCreator'
 import { connect } from "react-redux";
-import Register from '../register/Register.js'
 
 const Login = (props) => {
-    // console.log('props in register func', props)
-    let nameRef = useRef()
+    // console.log('props in login func', props)
     let emailRef = useRef()
     let passwordRef = useRef()
-    const history = useHistory()
 
-    const handleRegister = (event) => {
+    //=========================== Check if there is a token ===========================
+    let history = useHistory();
+    let [isAuth, setIsAuth] = useState(false)
+    
+    useEffect(() => {
+        let userToken = localStorage.getItem('userToken')
+        if (userToken) {
+            setIsAuth(true)
+        } else {
+            setIsAuth(false)
+        }
+    })
+
+    const handleLogin = (event) => {
         event.preventDefault()
-        // props.register(nameRef.current.value, emailRef.current.value, passwordRef.current.value)
-        nameRef.current.value = ''
+        if (emailRef.current.value === '' || passwordRef.current.value === '') {
+            alert("must fill in both email and password")
+        }
+        props.login(emailRef.current.value, passwordRef.current.value)
         emailRef.current.value = ''
         passwordRef.current.value = ''
-        alert('login')
+        history.push('/home')
     }
-    // console.log('isauth in register', props.state.isAuth)
-    return (
-        < div >
-            <div>This is LOGIN page</div>
-            {/* { props.state.registerMessage === '' ? null : <p>{props.state.registerMessage}. Click Login</p>} */}
-            < form onSubmit={handleRegister} >
-                <input ref={nameRef} placeholder='username' type='text'></input>
-                <input ref={emailRef} placeholder='email' type='email'></input>
-                <input ref={passwordRef} placeholder='password' type='password'></input>
-                <button>Register</button>
-                {/* <p onClick={() => history.push("/register")}>Don't Have An Account? Click Register</p> */}
-                <Link to='/register'>Don't Have An Account? Register Here</Link>
-                {/* <Link>
-                    <Redirect to="/register">Register</Redirect>
-                </Link> */}
-                {/* <button onClick={() => props.register(nameRef.current.value, emailRef.current.value, passwordRef.current.value)}>Register</button> */}
 
-            </form >
-        </div >
+    return (
+        <>
+            {isAuth ? <Redirect to='/home' />
+                : <div>
+                    <div>This is LOGIN page</div>
+                    < form onSubmit={handleLogin} >
+                        <input ref={emailRef} placeholder='email' type='email'></input>
+                        <input ref={passwordRef} placeholder='password' type='password'></input>
+                        <button>LOGIN</button>
+                        <Link to='/register'>Don't Have An Account? Register Here</Link>
+                    </form >
+
+                </div>}
+        </>
     )
 }
 
@@ -47,4 +55,4 @@ const mapStateToProps = (state) => {
         state: state.authReducer
     }
 }
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, { login })(Login);

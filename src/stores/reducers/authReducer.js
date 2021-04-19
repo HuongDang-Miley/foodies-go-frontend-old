@@ -1,13 +1,19 @@
 const initialState = {
     isAuth: false,
-    token: "",
     registerMessage: "",
-    loginMessage: "",
     user: {},
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "LOGIN":
+            console.log('action from login', action)
+            return {
+                ...state,
+                // user: action.user,
+                // isAuth: action.isAuth
+                // isAuth: true
+            }
         case 'REGISTER':
             console.log(action)
             return {

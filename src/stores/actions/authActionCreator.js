@@ -1,12 +1,13 @@
 import axios from 'axios'
 
+
+
 export const register = (username, email, password) => async dispatch => {
     let userInfo = { username, email, password };
-    console.log(userInfo)
+    // console.log(userInfo)
     try {
         let newUser = await axios.post('http://localhost:4000/api/users/register', userInfo)
         console.log('newUser in auth creator', newUser.data)
-        // throw ('user successfully created. Login')
 
         return dispatch({
             type: 'REGISTER',
@@ -14,9 +15,39 @@ export const register = (username, email, password) => async dispatch => {
             user: newUser.data.newUser
         })
 
-    } catch (err) {
-        throw (err)
+    } catch (error) {
+        if (error.response.status === 409) {
+            return dispatch({
+                type: 'REGISTER',
+                registerMessage: 'Conflict',
+            })
+        }
+        throw (error)
     }
+}
+
+export const login = (email, password) => async dispatch => {
+    let userInfo = { email, password }
+
+    try {
+        let response = await axios.post('http://localhost:4000/api/users/login', userInfo)
+
+        // let decodeToken = jwtDecode(response.data.token)
+        // console.log('otken', response.data.token)
+        localStorage.setItem('userToken', response.data.token)
+        console.log(response.data.token)
+        return dispatch({
+            type: 'LOGIN',
+            // isAuth: true,
+            // // token: response.data.token,
+            // user: {
+            //     id: decodeToken.id,
+            //     username: decodeToken.username,
+            //     email: decodeToken.email
+            // },
+        })
+
+    } catch (error) { throw (error) }
 }
 
 export const testGoogleAPI = () => async dispatch => {

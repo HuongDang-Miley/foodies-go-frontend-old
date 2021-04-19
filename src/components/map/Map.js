@@ -52,7 +52,7 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default function MapWrapper(props) {
     
-    console.log('props in mapWarrper', props)
+    // console.log('props in mapWarrper', props)
     const key = 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw'
     return (
 
