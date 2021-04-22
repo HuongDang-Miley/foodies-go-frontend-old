@@ -1,12 +1,13 @@
 import React from "react";
 import './home.css'
 import MapWrapper from './components/map/Map.js'
-import Map2 from './components/map/Map2.js'
+// import Map2 from './components/map/Map2.js'
 import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
-import Favorites from './components/favorites/Favorites.js'
+// import Favorites from './components/favorites/Favorites.js'
 import { connect } from "react-redux";
 import { getNearbySearch, getPlaceDetail , togglePlaceDetail} from './stores/actions/searchActionCreator'
+
 // import searchReducer from "./stores/reducers/searchReducer";
 
 function Home(props) {
@@ -22,10 +23,10 @@ function Home(props) {
             </div>
 
             <div className='map-wrapper'>
-                <MapWrapper
+                {/* <MapWrapper
                     state={props.searchResults}
                     getNearbySearch={props.getNearbySearch}
-                />
+                /> */}
                 {/* <Map2
                     searchResults={props.searchResults}
                     getNearbySearch={props.getNearbySearch}
@@ -37,7 +38,9 @@ function Home(props) {
                     <Sidebar
                         togglePlaceDetail={props.togglePlaceDetail}
                         getPlaceDetail={props.getPlaceDetail}
-                        searchResults={props.searchResults} />
+                        searchResults={props.searchResults} 
+                       
+                        />
                 </div>
             }
             {/* <div>

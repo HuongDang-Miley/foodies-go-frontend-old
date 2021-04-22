@@ -1,110 +1,84 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from "react-redux";
-import { Redirect, useHistory, Link } from 'react-router-dom';
-// import Login from '../login/Login.js'
-import TopNav from '../topNav/TopNav.js'
+import { useHistory, Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import jwtDecode from 'jwt-decode'
+import { loadFavorites, addNote, deleteNote } from '../../stores/actions/favActionCreator'
 import MapWrapper from '../map/Map.js'
+import FavPlaceDetail from '../favPlaceDetail/FavPlaceDetail.js'
 import './favorites.css'
 
 function Favorites(props) {
+    // console.log('props in favorites', props)
     const history = useHistory()
 
-    //=========================== Check if there is a token ===========================
+    //============================================================================================================
+    //Check for usertoken. If no token found, redirect to login page. If there is token, load favorites places 
+    //============================================================================================================
     let [isAuth, setIsAuth] = useState(false)
+    let [userId, setUserId] = useState('')
 
     useEffect(() => {
         let userToken = localStorage.getItem('userToken')
         if (userToken) {
             setIsAuth(true)
+            let userInfo = jwtDecode(userToken)
+            props.loadFavorites(userInfo.id)
+            setUserId(userInfo.id)
         } else {
             setIsAuth(false)
         }
-    })
-
-    // console.log('token after useEffect', token)
-
-
-    // console.log('props in Favorites', props)
-    // return (
-    //     <div>
-    //         <TopNav />
-    //         <MapWrapper
-    //                 state={props.searchResults}
-    //                 getNearbySearch={props.getNearbySearch}
-    //             />
-    //         <div>This is Favorites Page</div>
-    //         {/* {token
-    //             ? <div>This is Favorites Page</div>
-    //             : <Redirect to="/login" component={Login} />
-    //         } */}
-    //     </div>
-    // )
-
-
+    }, [])
 
     const logOut = () => {
         localStorage.removeItem('userToken')
         history.push('/home')
     }
 
-    // return (
-    //     <div>
-    //         {isAuth
-    //             // ? <div>'yes there is token' </div>
-    //             ? <Redirect to='/test' />
-    //             : <Redirect to='/login' />}
-    //     </div>
-    //     // <div>
-    //     //     <div className='topNav-wrapper'>
-    //     //         {/* <Link to='/home'>Go Back</Link> */}
-    //     // This is Fav component
-    //     // {/* <button onClick={() => logOut()}>LogOut</button> */}
-    //     //     </div>
-    //     //     {/* // : <Redirect to='/login' /> */}
-
-
-    //     // </div>
-
-    // )
-
     return (
         <>
-
-            <div>
-                <div className='topNav-wrapper'>
-                    <button><Link to='/home'>Go Back</Link></button>
-                    <div className='topnav-right-buttons-wrapper'>
-                        {isAuth
-                            ? <button onClick={() => logOut()}>Logout</button>
-                            : <button><Link to='/login'>Login</Link></button>
-                        }
-                    </div>
-                </div>
-
-                <div className='map-wrapper'>
-                    <MapWrapper
-                        state={props.searchResults}
-                        getNearbySearch={props.getNearbySearch}
-                    />
-                </div>
-                <div className='sidebar-wrapper'>
+            //============================================================================================================
+            // Top Nav
+            //============================================================================================================
+            <div className='topNav-wrapper'>
+                <button><Link to='/home'>Go Back</Link></button>
+                <div className='topnav-right-buttons-wrapper'>
                     {isAuth
-                        ? <p>This is Favorites</p>
-                        : <p>You Must Login To see your favorites</p>
+                        ? <button onClick={() => logOut()}>Logout</button>
+                        : <button><Link to='/login'>Login</Link></button>
                     }
                 </div>
             </div>
 
+            //============================================================================================================
+            // Map
+            //============================================================================================================
+            <div className='map-wrapper'>
+                {/* <MapWrapper
+                    state={props.searchResults}
+                    getNearbySearch={props.getNearbySearch}
+                /> */}
+            </div>
 
-            {/* {props.searchResults.places.length === 0
-                ? null
-                : <div className='sidebar-wrapper'>
-                    <Sidebar
-                        togglePlaceDetail={props.togglePlaceDetail}
-                        getPlaceDetail={props.getPlaceDetail}
-                        searchResults={props.searchResults} />
-                </div>
-            } */}
+            //============================================================================================================
+            // Side Bar
+            //============================================================================================================
+            <div className='sidebar-wrapper'>
+                {isAuth
+                    ? <div>
+                        <h3>Favorite List</h3>
+                        {props.favList.length === 0
+                            ? 'Your favorites list is empty'
+                            : props.favList.map(place =>
+                                <FavPlaceDetail
+                                    deleteNote={props.deleteNote}
+                                    favList={props.favList}
+                                    place={place}
+                                    userId={userId}
+                                    addNote={props.addNote} />)}
+                    </div>
+                    : <p>You Must Login To see your favorites</p>
+                }
+            </div>
         </>
     );
 
@@ -113,8 +87,9 @@ function Favorites(props) {
 
 const mapStateToProps = (state) => {
     return {
-        state: state.authReducer
+        favList: state.favReducer.favList
     }
 }
 
-export default connect(mapStateToProps)(Favorites)
+export default connect(mapStateToProps, { loadFavorites, addNote, deleteNote })(Favorites)
+

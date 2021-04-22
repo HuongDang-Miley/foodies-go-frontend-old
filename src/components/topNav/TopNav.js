@@ -1,10 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { Redirect, useHistory, NavLink, Link } from 'react-router-dom';
-import Favorites from '../favorites/Favorites.js'
+import { useHistory, Link } from 'react-router-dom';
+// import Favorites from '../favorites/Favorites.js'
 import './topNav.css'
 
 export default function TopNav(props) {
-    // console.log('prop in search ',props.togglePlaceDetail)
     const history = useHistory()
     let searchRef = useRef()
 
@@ -20,9 +19,7 @@ export default function TopNav(props) {
         }
     })
 
-    console.log('isAuth in TopNav', isAuth)
-
-    const handleSubmit = (event) => {
+    const handleSearch = (event) => {
         event.preventDefault()
         props.togglePlaceDetail(false)
         props.getNearbySearch(searchRef.current.value)
@@ -37,7 +34,7 @@ export default function TopNav(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSearch}>
                 <input
                     ref={searchRef}
                     placeholder='Search Place'></input>

@@ -5,8 +5,7 @@ import Home from './Home.js'
 import Register from './components/register/Register.js'
 import Login from './components/login/Login.js'
 import Favorites from './components/favorites/Favorites.js'
-import PrivateRoute from './components/privateRoute/PrivateRoute.js'
-import Test from './components/test/Test.js'
+// import Test from './components/test/Test.js'
 
 function App(props) {
   return (
@@ -16,7 +15,7 @@ function App(props) {
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/test" component={Test} />
+        {/* <Route exact path="/test" component={Test} /> */}
       </Switch>
     </Router>
   );
@@ -27,4 +26,3 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps)(App);
 
-{/* <PrivateRoute exact path="/Favorites" component={Favorites} state={props.state} /> */ }
