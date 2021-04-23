@@ -5,11 +5,13 @@ import jwtDecode from 'jwt-decode'
 import { loadFavorites, addNote, deleteNote, deletePlace } from '../../stores/actions/favActionCreator'
 import MapWrapper from '../map/Map.js'
 import FavPlaceDetail from '../favPlaceDetail/FavPlaceDetail.js'
+import LoginModal from '../modal/LoginModal'
 import './favorites.css'
 
 function Favorites(props) {
     // console.log('props in favorites', props)
     const history = useHistory()
+    let [disableDeleteModal, setDisableDeleteModal] = useState(false)
 
     //============================================================================================================
     //Check for usertoken. If no token found, redirect to login page. If there is token, load favorites places 
@@ -39,11 +41,11 @@ function Favorites(props) {
 
     return (
         <>
-            //============================================================================================================
+            {/* //============================================================================================================
             // Top Nav
-            //============================================================================================================
+            //============================================================================================================ */}
             <div className='topNav-wrapper'>
-                
+
                 <button><Link to='/home'>Go Back</Link></button>
                 <div className='topnav-right-buttons-wrapper'>
                     <p>{username}</p>
@@ -54,19 +56,19 @@ function Favorites(props) {
                 </div>
             </div>
 
-            //============================================================================================================
+            {/* //============================================================================================================
             // Map
-            //============================================================================================================
+            //============================================================================================================ */}
             <div className='map-wrapper'>
                 {/* <MapWrapper
                     state={props.searchResults}
                     getNearbySearch={props.getNearbySearch}
                 /> */}
             </div>
-
+            {/* 
             //============================================================================================================
             // Side Bar
-            //============================================================================================================
+            //============================================================================================================ */}
             <div className='sidebar-wrapper'>
                 {isAuth
                     ? <div>
@@ -75,6 +77,8 @@ function Favorites(props) {
                             ? 'Your favorites list is empty'
                             : props.favList.map(place =>
                                 <FavPlaceDetail
+                                    disableDeleteModal={disableDeleteModal}
+                                    setDisableDeleteModal={setDisableDeleteModal}
                                     deletePlace={props.deletePlace}
                                     deleteNote={props.deleteNote}
                                     favList={props.favList}
@@ -82,7 +86,7 @@ function Favorites(props) {
                                     userId={userId}
                                     addNote={props.addNote} />)}
                     </div>
-                    : <p>You Must Login To see your favorites</p>
+                    : <p>You Must Login To see your favorites<LoginModal /></p>
                 }
             </div>
         </>

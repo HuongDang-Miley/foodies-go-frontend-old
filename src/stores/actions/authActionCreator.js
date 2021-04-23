@@ -33,7 +33,7 @@ export const login = (email, password) => async dispatch => {
     try {
         let response = await axios.post('http://localhost:4000/api/users/login', userInfo)
         localStorage.setItem('userToken', response.data.token)
-        console.log(response.data.token)
+        // console.log(response.data.token)
         return dispatch({ type: 'LOGIN' })
 
     } catch (error) { throw (error) }

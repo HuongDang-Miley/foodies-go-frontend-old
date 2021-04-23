@@ -17,6 +17,7 @@ const favReducer = (state = initial, action) => {
             }
 
         case "LOAD_FAVORITES":
+            console.log(action)
             return {
                 ...state,
                 favList: action.favList

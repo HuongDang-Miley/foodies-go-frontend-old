@@ -19,6 +19,8 @@ export default function TopNav(props) {
         }
     })
 
+    console.log('isAuth', isAuth)
+
     const handleSearch = (event) => {
         event.preventDefault()
         props.togglePlaceDetail(false)

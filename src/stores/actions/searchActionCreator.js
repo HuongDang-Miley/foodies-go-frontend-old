@@ -40,11 +40,3 @@ export const togglePlaceDetail = (boolean) => dispatch => {
 
 }
 
-
-
-export const test = (input) => {
-    return {
-        type: 'TEST',
-        text: input
-    }
-}

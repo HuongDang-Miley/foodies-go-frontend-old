@@ -13,7 +13,7 @@ export const AddToFavorites = (userId, place) => async dispatch => {
         url: place.url,
         vicinity: place.vicinity,
         website: place.website,
-        note: ''
+        note: null
     }
 
     await axios.post('http://localhost:4000/api/favorites/addToFavorites', { userId: userId, place: addPlace })
@@ -33,7 +33,7 @@ export const loadFavorites = (id) => async dispatch => {
 
     //use query not in the link
     let response = await axios.get('http://localhost:4000/api/favorites/loadFavorites', { params: { userId: id } })
-    // console.log('response in fvaction Creator', response.data)
+    console.log('response in fvaction Creator', response.data)
 
     return dispatch({
         type: "LOAD_FAVORITES",
@@ -73,12 +73,12 @@ export const deleteNote = (favList, userId, placeId) => async dispatch => {
     await axios.post('http://localhost:4000/api/favorites/addNote', {
         userId: userId,
         placeId: placeId,
-        note: ''
+        note: null
     })
 
     let updateFavList = favList.map(item => {
         if (item.place_id === placeId) {
-            item.note = ''
+            item.note = null
         } return item
     })
 
