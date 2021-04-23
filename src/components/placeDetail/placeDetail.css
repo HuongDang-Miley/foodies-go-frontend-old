@@ -1,0 +1,11 @@
+.add-to-fav-btn {
+    float: right
+}
+
+.review {
+    border: 1px solid black;
+}
+
+.user-review-img {
+    width: 40px;
+}

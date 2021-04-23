@@ -10,7 +10,6 @@ export default function FavPlaceDetail(props) {
 
     return (
         <div className='fav-place-detail-wrapper'>
-
             {props.disableDeleteModal
                 ? <button className='delete-btn' onClick={() => props.deletePlace(props.favList, props.userId, props.place.place_id)}>Delete From Favorites outside ternary</button>
                 : <button className='delete-btn' onClick={() => setOpenDeleteModal(true)}>Delete From Favorites</button>
