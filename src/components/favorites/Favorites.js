@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import jwtDecode from 'jwt-decode'
-import { loadFavorites, addNote, deleteNote } from '../../stores/actions/favActionCreator'
+import { loadFavorites, addNote, deleteNote, deletePlace } from '../../stores/actions/favActionCreator'
 import MapWrapper from '../map/Map.js'
 import FavPlaceDetail from '../favPlaceDetail/FavPlaceDetail.js'
 import './favorites.css'
@@ -16,6 +16,7 @@ function Favorites(props) {
     //============================================================================================================
     let [isAuth, setIsAuth] = useState(false)
     let [userId, setUserId] = useState('')
+    let [username, setUsername] = useState('')
 
     useEffect(() => {
         let userToken = localStorage.getItem('userToken')
@@ -24,6 +25,7 @@ function Favorites(props) {
             let userInfo = jwtDecode(userToken)
             props.loadFavorites(userInfo.id)
             setUserId(userInfo.id)
+            setUsername(userInfo.username)
         } else {
             setIsAuth(false)
         }
@@ -34,14 +36,17 @@ function Favorites(props) {
         history.push('/home')
     }
 
+
     return (
         <>
             //============================================================================================================
             // Top Nav
             //============================================================================================================
             <div className='topNav-wrapper'>
+                
                 <button><Link to='/home'>Go Back</Link></button>
                 <div className='topnav-right-buttons-wrapper'>
+                    <p>{username}</p>
                     {isAuth
                         ? <button onClick={() => logOut()}>Logout</button>
                         : <button><Link to='/login'>Login</Link></button>
@@ -70,6 +75,7 @@ function Favorites(props) {
                             ? 'Your favorites list is empty'
                             : props.favList.map(place =>
                                 <FavPlaceDetail
+                                    deletePlace={props.deletePlace}
                                     deleteNote={props.deleteNote}
                                     favList={props.favList}
                                     place={place}
@@ -91,5 +97,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { loadFavorites, addNote, deleteNote })(Favorites)
+export default connect(mapStateToProps, { loadFavorites, addNote, deleteNote, deletePlace })(Favorites)
 

@@ -1,3 +1,7 @@
 .fav-place-detail-wrapper {
     border: 1px solid black;
 }
+
+.delete-btn {
+    float: right
+}

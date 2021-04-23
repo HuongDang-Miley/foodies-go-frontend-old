@@ -87,3 +87,25 @@ export const deleteNote = (favList, userId, placeId) => async dispatch => {
         favList: updateFavList
     })
 }
+
+//===================================================================================================================
+//===================================================================================================================
+
+export const deletePlace = (favList, userId, placeId) => async dispatch => {
+    
+
+    await axios.delete('http://localhost:4000/api/favorites/deletePlace', {
+        params: {
+            userId: userId,
+            placeId: placeId,
+        }
+    })
+
+    let updateFavList = favList.filter(item => item.place_id !== placeId)
+    console.log('updateFavList from deletePlae', updateFavList)
+
+    return dispatch({
+        type: "DELETE_PLACE",
+        favList: updateFavList
+    })
+}

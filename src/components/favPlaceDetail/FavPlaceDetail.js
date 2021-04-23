@@ -6,8 +6,13 @@ import Modal from '../modal/Modal'
 export default function FavPlaceDetail(props) {
     let [openModal, setOpenModal] = useState(false)
 
+    const handleDeletePlace = () => {
+        props.deletePlace(props.favList, props.userId, props.place.place_id)
+    }
+
     return (
         <div className='fav-place-detail-wrapper'>
+            <button className='delete-btn' onClick={() => handleDeletePlace()}>Delete From Favorites</button>
             <p>{props.place.name}</p>
             <p>{props.place.rating}</p>
             <p>{props.place.price_level}</p>
