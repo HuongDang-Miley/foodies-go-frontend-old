@@ -1,60 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import './home.css'
-import MapWrapper from './components/map/Map.js'
-// import Map2 from './components/map/Map2.js'
+import Map from './components/map/Map.js'
+import MapWrapper from './components/map/OldMapModified.js'
+import Map2 from './components/map/Map2.js'
+import GreenMap from './components/map/GreenMap.js'
 import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
-// import Favorites from './components/favorites/Favorites.js'
 import { connect } from "react-redux";
-import { getNearbySearch, getPlaceDetail , togglePlaceDetail} from './stores/actions/searchActionCreator'
+import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from './stores/actions/searchActionCreator'
 
-// import searchReducer from "./stores/reducers/searchReducer";
+const key = process.env.REACT_APP_GOOGLE_API_KEY
+
+
 
 function Home(props) {
+    console.log('key', key)
     // console.log('props in Home', props)
+    // const [showPlaceDetail, setShowPlaceDetail] = useState(false)
+
+
+
     return (
         <div>
             <div className='topNav-wrapper'>
                 <TopNav
-                    searchResults={props.searchResults}
+                    // searchResults={props.searchResults}
                     getNearbySearch={props.getNearbySearch}
                     togglePlaceDetail={props.togglePlaceDetail}
                 />
             </div>
 
             <div className='map-wrapper'>
+                {/* <Map2 
+                places={props.places}
+                placeDetail={props.placeDetail}
+                showPlaceDetail={props.showPlaceDetail}
+                 /> */}
+                {/* <GreenMap/> */}
                 {/* <MapWrapper
-                    state={props.searchResults}
+                    // state={props.searchResults}
+                    state={props.places}
                     getNearbySearch={props.getNearbySearch}
                 /> */}
-                {/* <Map2
-                    searchResults={props.searchResults}
-                    getNearbySearch={props.getNearbySearch}
-                /> */}
+                {/* {props.showPlaceDetail
+                    ? <Map places={[props.placeDetail]} /> //=> place detail
+                    : <Map places={props.places} /> //=> nearby search
+                } */}
             </div>
-            {props.searchResults.places.length === 0
+            {props.places.length === 0
                 ? null
                 : <div className='sidebar-wrapper'>
                     <Sidebar
+                        showPlaceDetail={props.showPlaceDetail}
+                        placeDetail={props.placeDetail}
                         togglePlaceDetail={props.togglePlaceDetail}
+                        places={props.places}
                         getPlaceDetail={props.getPlaceDetail}
-                        searchResults={props.searchResults} 
-                       
-                        />
+                    // searchResults={props.searchResults}
+
+                    />
                 </div>
             }
-            {/* <div>
-            <Favorites/>
-            </div> */}
         </div>
     );
 }
 
+
 const mapStateToProps = (state) => {
     return {
+        places: state.searchReducer.places,
+        showPlaceDetail: state.searchReducer.showPlaceDetail,
+        placeDetail: state.searchReducer.placeDetail,
         searchResults: state.searchReducer,
-        isAuth: state.authrReducer
+        isAuth: state.authrReducer,
+        markers: state.mapReducer
     }
 }
 
-export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail , togglePlaceDetail})(Home)
+export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail })(Home)

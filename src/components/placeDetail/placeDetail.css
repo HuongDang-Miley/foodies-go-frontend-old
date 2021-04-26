@@ -2,8 +2,9 @@
     float: right
 }
 
-.review {
+.review-wrapper {
     border: 1px solid black;
+    padding: 24px;
 }
 
 .user-review-img {

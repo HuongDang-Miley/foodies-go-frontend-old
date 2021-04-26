@@ -27,8 +27,8 @@ export const getPlaceDetail = (id) => async dispatch => {
 
     return dispatch({
         type: 'SHOW_PLACE_DETAIL',
-        placeDetail: response.data.result  //<== result from google api call frontend/backend 
-        // placeDetail: placeDetail.result  //<== result of hardcode frontend
+        // placeDetail: response.data.result  //<== result from google api call frontend/backend 
+        placeDetail: placeDetail.result  //<== result of hardcode frontend
     })
 }
 

@@ -1,7 +1,8 @@
 
 const initialState = {
     places: [],
-    placeDetail: {},
+    // placeDetail: {},
+    placeDetail: null,
     showPlaceDetail: false
 }
 
@@ -13,6 +14,7 @@ const searchReducer = (state = initialState, action) => {
                 showPlaceDetail: action.showPlaceDetail
             }
         case 'SHOW_PLACE_DETAIL':
+            console.log(action.placeDetail)
             return {
                 ...state,
                 placeDetail: action.placeDetail

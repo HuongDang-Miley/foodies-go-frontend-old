@@ -24,6 +24,7 @@ export default function TopNav(props) {
         props.togglePlaceDetail(false)
         props.getNearbySearch(searchRef.current.value)
         searchRef.current.value = ''
+        history.push('./home')
     }
 
     const logOut = () => {

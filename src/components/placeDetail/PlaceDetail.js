@@ -7,17 +7,17 @@ import { AddToFavorites, deletePlace } from '../../stores/actions/favActionCreat
 
 
 function PlaceDetail(props) {
+    // console.log('props in Place Detail', props)
     // ============================================================================================================
     // Set variable
     // ============================================================================================================
-    console.log('props in placeDetail', props.placeDetail)
+
     let history = useHistory()
     let [userId, setUserId] = useState('')
     const [showAddToFavBtn, setShowAddToFavBtn] = useState(true)
 
-
     // ============================================================================================================
-    // Check if there is a user
+    // Check for userId. If there is userId, user can add place to Favorites, if not, page redirect to Login page 
     // ============================================================================================================
 
     useEffect(() => {
@@ -54,43 +54,54 @@ function PlaceDetail(props) {
 
 
     return (
-        <div>
+        <>
             {/* ============================================================================================================
+IF there is a placeDetail, show it
+============================================================================================================ */}
+
+            {props.placeDetail === null ? null :
+                <div>
+                    {/* ============================================================================================================
             Back and Add To Favorites Section
             ============================================================================================================ */}
-            <button onClick={() => props.togglePlaceDetail(false)}>{`<- Back`}</button>
-            {showAddToFavBtn
-                ? <button className='add-to-fav-btn' onClick={() => handleAddToFavorites()}>Add To Favorite</button>
-                : <button className='add-to-fav-btn' onClick={() => handleDetelePlace()}>Delete From Favorite</button>
-            }
+                    <button onClick={() => props.togglePlaceDetail(false)}>{`<- Back`}</button>
+                    {showAddToFavBtn
+                        ? <button className='add-to-fav-btn' onClick={() => handleAddToFavorites()}>Add To Favorite</button>
+                        : <button className='add-to-fav-btn' onClick={() => handleDetelePlace()}>Delete From Favorite</button>
+                    }
 
-            {/* ============================================================================================================
+                    {/* ============================================================================================================
             Place Detail section
             ============================================================================================================ */}
 
-            <h2>Name: {props.placeDetail.name}</h2>
-            <p>Rating: {props.placeDetail.rating}</p>
-            <p>{props.placeDetail.reviews.length} Reviews</p>
-            <p>Price: {priceLevel(props.placeDetail.price_level)} </p>
-            <p>Website: {props.placeDetail.website}</p>
-            <p>Address:{props.placeDetail.vicinity}</p>
-            <p>Phone: {props.placeDetail.formatted_phone_number}</p>
-            <h3>Reviews</h3>
 
-            {/* ============================================================================================================
+                    <h2>{props.placeDetail.name}</h2>
+                    {/* <p>{props.placeDetail.types[0]}</p> */}
+                    <p>Rating: {props.placeDetail.rating}</p>
+                    <p>{props.placeDetail.reviews.length} Reviews</p>
+                    <p>Price: {priceLevel(props.placeDetail.price_level)} </p>
+                    <p>Website: {props.placeDetail.website}</p>
+                    <p>Address:{props.placeDetail.vicinity}</p>
+                    <p>Phone: {props.placeDetail.formatted_phone_number}</p>
+                    <h3>Reviews</h3>
+
+                    {/* ============================================================================================================
             User Reviews section
             ============================================================================================================ */}
 
-            {props.placeDetail.reviews.map(item =>
-                <div className='review'>
-                    <img className='user-review-img' src={item.profile_photo_url} />
-                    <span>{item.author_name}</span>
-                    <p>{item.rating}</p>
-                    <span>{item.relative_time_description}</span>
-                    <p>{item.text}</p>
+                    {props.placeDetail.reviews.map(item =>
+                        <div className='review-wrapper' key={item.author_name}>
+                            <img className='user-review-img' src={item.profile_photo_url} />
+                            <span>{item.author_name}</span>
+                            <p>{item.rating}</p>
+                            <span>{item.relative_time_description}</span>
+                            <p>{item.text}</p>
+                        </div>
+                    )}
                 </div>
-            )}
-        </div>
+            }
+
+        </>
     )
 }
 

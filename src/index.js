@@ -11,12 +11,13 @@ import authReducer from './stores/reducers/authReducer.js'
 import searchReducer from './stores/reducers/searchReducer.js'
 import favReducer from './stores/reducers/favReducer.js'
 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     searchReducer: searchReducer,
     authReducer: authReducer,
-    favReducer: favReducer
+    favReducer: favReducer,
 })
 
 const rootStore = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
