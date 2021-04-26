@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode'
 import { connect } from 'react-redux'
 import './placeDetail.css'
+import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 import { AddToFavorites, deletePlace } from '../../stores/actions/favActionCreator'
 
 
@@ -107,9 +108,10 @@ IF there is a placeDetail, show it
 
 const mapStateToProps = (state) => {
     return {
-        favList: state.favReducer.favList
+        favList: state.favReducer.favList,
+        placeDetail: state.searchReducer.placeDetail,
     }
 }
 
-export default connect(mapStateToProps, { AddToFavorites, deletePlace })(PlaceDetail)
+export default connect(mapStateToProps, { AddToFavorites, deletePlace, togglePlaceDetail })(PlaceDetail)
 

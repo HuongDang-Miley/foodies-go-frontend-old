@@ -1,7 +1,8 @@
 
-import React, { useState, useCallback, useReducer, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { connect } from "react-redux";
-import { GoogleMap, useLoadScript, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
 
@@ -18,7 +19,7 @@ const center = {
 
 
 function FavMap(props) {
-    console.log('props in FavMap', props)
+    // console.log('props in FavMap', props)
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw',
@@ -38,7 +39,7 @@ function FavMap(props) {
         if (props.userLocation) {
             setCenterLocation({ lat: props.userLocation.latitude, lng: props.userLocation.longitude })
         }
-        console.log('props.userLocation in useEffect', props.userLocation)
+        // console.log('props.userLocation in useEffect', props.userLocation)
     }, [props.userLocation])
 
 
@@ -48,6 +49,12 @@ function FavMap(props) {
             lng: event.latLng.lng(),
         })
     }, [])
+
+
+    const handleShowPlaceDetail = (id) => {
+        props.togglePlaceDetail(true)
+        props.getPlaceDetail(id)
+    }
 
     if (loadError) return 'Error Loading Map'
     if (!isLoaded) return 'Loading Maps'
@@ -107,7 +114,7 @@ function FavMap(props) {
                         onCloseClick={() => { setSelected(null) }}
                         position={selected.geometry.location}
                     >
-                        <div>
+                        <div onClick={() => handleShowPlaceDetail(selected.place_id)}>
                             <h3>{selected.name}</h3>
                             <h3>{selected.rating}</h3>
                             <h3>{selected.vicinity}</h3>
@@ -129,8 +136,12 @@ function FavMap(props) {
 
 const mapStateToProps = (state) => {
     return {
+        places: state.searchReducer.places,
+        showPlaceDetail: state.searchReducer.showPlaceDetail,
+        placeDetail: state.searchReducer.placeDetail,
         userLocation: state.authReducer.userLocation
     }
 }
+export default connect(mapStateToProps , { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(FavMap)
 // export default FavMap;
-export default connect(mapStateToProps)(FavMap)
+

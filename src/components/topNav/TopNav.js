@@ -1,27 +1,42 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { connect } from "react-redux";
-import { useHistory, Link } from 'react-router-dom';
-// import Favorites from '../favorites/Favorites.js'
 import './topNav.css'
+import { useHistory, Link } from 'react-router-dom';
+import { getNearbySearch, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
 function TopNav(props) {
     const history = useHistory()
     let searchRef = useRef()
-    console.log('props.userLocation from TopNav', props.userLocation)
 
     //=========================== Check if there is a token ===========================
     let [isAuth, setIsAuth] = useState(false)
 
-    useEffect(() => {
-        props.getUserLocation()
-        let userToken = localStorage.getItem('userToken')
+    let getUserToken = async () => {
+        let userToken = await localStorage.getItem('userToken')
         if (userToken) {
             setIsAuth(true)
         } else {
             setIsAuth(false)
         }
+    }
+
+    useEffect(() => {
+        console.log('useEffect')
+        props.getUserLocation()
+        // let getUserToken = async () => {
+        //     let userToken = await localStorage.getItem('userToken')
+        //     if (userToken) {
+        //         setIsAuth(true)
+        //     } else {
+        //         setIsAuth(false)
+        //     }
+        // }
+        getUserToken()
     }, [])
+
+
+    console.log('isAuth from TopNav', isAuth)
 
     const handleSearch = (event) => {
         event.preventDefault()
@@ -31,8 +46,9 @@ function TopNav(props) {
         history.push('./home')
     }
 
-    const logOut = () => {
-        localStorage.removeItem('userToken')
+    const logOut = async () => {
+        await localStorage.removeItem('userToken')
+        setIsAuth(false)
         history.push('/home')
     }
 
@@ -60,4 +76,4 @@ const mapStateToProps = (state) => {
         userLocation: state.authReducer.userLocation
     }
 }
-export default connect(mapStateToProps, { getUserLocation })(TopNav)
+export default connect(mapStateToProps, { getUserLocation, getNearbySearch, togglePlaceDetail })(TopNav)

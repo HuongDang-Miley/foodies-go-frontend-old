@@ -33,7 +33,6 @@ export const login = (email, password) => async dispatch => {
     try {
         let response = await axios.post('http://localhost:4000/api/users/login', userInfo)
         localStorage.setItem('userToken', response.data.token)
-        // console.log(response.data.token)
         return dispatch({ type: 'LOGIN' })
 
     } catch (error) { throw (error) }
@@ -41,6 +40,6 @@ export const login = (email, password) => async dispatch => {
 
 export const getUserLocation = (location) => async dispatch => {
     let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
-    console.log('response.data in action creator', response.data)
+    // console.log('response.data in action creator', response.data)
     return dispatch({type: "GET_USER_LOCATION", userLocation: response.data})
 }

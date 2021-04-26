@@ -21,12 +21,12 @@ const Login = (props) => {
         }
     })
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault()
         if (emailRef.current.value === '' || passwordRef.current.value === '') {
             alert("must fill in both email and password")
         }
-        props.login(emailRef.current.value, passwordRef.current.value)
+        await props.login(emailRef.current.value, passwordRef.current.value)
         emailRef.current.value = ''
         passwordRef.current.value = ''
         history.push('/home')

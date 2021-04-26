@@ -1,9 +1,8 @@
 import React from 'react'
-// import React, { useEffect, useState } from 'react'
 import './placeContainer.css'
-import { AddToFavorites } from '../../stores/actions/favActionCreator'
-// import jwtDecode from 'jwt-decode'
 import { connect } from 'react-redux'
+import { AddToFavorites } from '../../stores/actions/favActionCreator'
+import { getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 
 // export default function PlaceContainer(props) {
 function PlaceContainer(props) {
@@ -55,10 +54,10 @@ function PlaceContainer(props) {
 
 const mapStateToProps = (state) => {
     return {
-        favPlaces: state.favReducer
+        favPlaces: state.favReducer,
     }
 }
 
-export default connect(mapStateToProps, { AddToFavorites })(PlaceContainer)
+export default connect(mapStateToProps, { AddToFavorites,getPlaceDetail, togglePlaceDetail })(PlaceContainer)
 
 
