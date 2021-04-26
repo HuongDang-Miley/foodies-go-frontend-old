@@ -29,7 +29,7 @@ function Home(props) {
             </div>
 
             <div className='map-wrapper'>
-                <FavMap/>
+                <FavMap places = {props.places}/>
                 {/* <Map2 
                 places={props.places}
                 placeDetail={props.placeDetail}

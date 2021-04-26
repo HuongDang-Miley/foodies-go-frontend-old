@@ -15,7 +15,7 @@ const center = {
 }
 
 
-function App() {
+function FavMap(props) {
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw',
@@ -36,28 +36,41 @@ function App() {
   if (!isLoaded) return 'Loading Maps'
 
   return (
-    <div className="App">
+    <div className="FavMap">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={13}
         center={center}
         onClick={onMapCLick}
       >
-        <Marker
-          position={marker}
-          onClick={() => { setSelected(marker) }} />
-        {selected ?
-          <InfoWindow 
-          onCloseClick={()=> setSelected(null)}
-          position={marker}>
-            <div>
-            This is the window
-            </div>
-            </InfoWindow> : null}
+         {props.places.map((item) =>
+                    <Marker
+                        // icon={props.showPlaceDetail ? 'favicon.ico' : null }
+                        key={item.place_id}
+                        position={{
+                            lat: item.geometry.location.lat,
+                            lng: item.geometry.location.lng
+                        }}
+                        onClick={() => {
+                            setSelected(item)
+                            // setShowUserAddress(false)
+                        }}
+                    />
+                )}
 
+                {selected ?
+                    <InfoWindow
+                        onCloseClick={() => { setSelected(null) }}
+                        position={selected.geometry.location}
+                    >
+                        <div>
+                            <h3>{selected.name}</h3>
+                            <h3>{selected.rating}</h3>
+                        </div>
+                    </InfoWindow> : null}
       </GoogleMap>
     </div>
   );
 }
 
-export default App;
+export default FavMap;
