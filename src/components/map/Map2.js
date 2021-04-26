@@ -154,10 +154,10 @@ function Map2(props) {
     );
 }
 
-export default Map2;
-// const mapStateToProps = (state) => {
-//     return {
-//         places: state.searchReducer.places,
-//     }
-// }
-// export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail })(Map2)
+// export default Map2;
+const mapStateToProps = (state) => {
+    return {
+        places: state.searchReducer.places,
+    }
+}
+export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail })(Map2)

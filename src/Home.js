@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import './home.css'
-import Map from './components/map/Map.js'
-import MapWrapper from './components/map/OldMapModified.js'
+// import Map from './components/map/Map.js'
+// import MapWrapper from './components/map/OldMapModified.js'
+import FavMap from './components/map/FavMap.js'
 import Map2 from './components/map/Map2.js'
-import GreenMap from './components/map/GreenMap.js'
+// import GreenMap from './components/map/GreenMap.js'
 import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
 import { connect } from "react-redux";
@@ -16,9 +17,6 @@ const key = process.env.REACT_APP_GOOGLE_API_KEY
 function Home(props) {
     console.log('key', key)
     // console.log('props in Home', props)
-    // const [showPlaceDetail, setShowPlaceDetail] = useState(false)
-
-
 
     return (
         <div>
@@ -31,6 +29,7 @@ function Home(props) {
             </div>
 
             <div className='map-wrapper'>
+                <FavMap/>
                 {/* <Map2 
                 places={props.places}
                 placeDetail={props.placeDetail}

@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode'
 import { loadFavorites, addNote, deleteNote, deletePlace } from '../../stores/actions/favActionCreator'
 import Map from '../map/Map.js'
 import Map2 from '../map/Map2.js'
+import FavMap from '../map/FavMap.js'
 import FavPlaceDetail from '../favPlaceDetail/FavPlaceDetail.js'
 import LoginModal from '../modal/LoginModal'
 import './favorites.css'
@@ -35,7 +36,7 @@ function Favorites(props) {
         } else {
             setIsAuth(false)
         }
-    },[userToken])
+    },[userToken, isAuth, userId])
 
     console.log('userId', userId)
 
@@ -67,6 +68,7 @@ function Favorites(props) {
             <div className='map-wrapper'>
                 {/* <Map places={props.favList} /> */}
                 {/* <Map2 places={props.favList} /> */}
+                <FavMap places={props.favList} />
             </div>
 
             {/* //============================================================================================================
@@ -90,7 +92,7 @@ function Favorites(props) {
                                     userId={userId}
                                     addNote={props.addNote} />)}
                     </div>
-                    : <p>You Must Login To see your favorites<LoginModal /></p>
+                    : <div>You Must Login To see your favorites<LoginModal /></div>
                 }
             </div>
         </>

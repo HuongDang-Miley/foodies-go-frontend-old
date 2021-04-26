@@ -22,14 +22,14 @@ export default function Sidebar(props) {
                 : <>
                     <div className='filter-bar'>{props.places.length} Results</div>
                     {props.places.map(place =>
-                        <div
+                        <div key={place.place_id}
                         // onClick={() => handleShowPlaceDetail(place.place_id)}
                         // onMouseEnter={() => console.log('mouse enter')}
                         >
                             <PlaceContainer
                                 togglePlaceDetail={props.togglePlaceDetail}
                                 getPlaceDetail={props.getPlaceDetail}
-                                key={place.place_id}
+                                // key={place.place_id}
                                 place={place} />
                         </div>
                     )}

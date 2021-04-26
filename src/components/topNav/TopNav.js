@@ -17,7 +17,7 @@ export default function TopNav(props) {
         } else {
             setIsAuth(false)
         }
-    })
+    }, [])
 
     const handleSearch = (event) => {
         event.preventDefault()

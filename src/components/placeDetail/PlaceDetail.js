@@ -26,7 +26,7 @@ function PlaceDetail(props) {
             let decoded = jwtDecode(userToken)
             setUserId(decoded.id)
         }
-    })
+    }, [])
 
     // ============================================================================================================
     // Functions
