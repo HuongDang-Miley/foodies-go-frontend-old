@@ -9,6 +9,7 @@ import FavMap from '../map/FavMap.js'
 import FavPlaceDetail from '../favPlaceDetail/FavPlaceDetail.js'
 import LoginModal from '../modal/LoginModal'
 import './favorites.css'
+import { getUserLocation } from '../../stores/actions/authActionCreator'
 
 function Favorites(props) {
     // console.log('props in favorites', props)
@@ -21,11 +22,11 @@ function Favorites(props) {
     let [isAuth, setIsAuth] = useState(false)
     let [userId, setUserId] = useState('')
     let [username, setUsername] = useState('')
-    let userToken = localStorage.getItem('userToken')
 
     
     useEffect(() => {
-        // let userToken = localStorage.getItem('userToken')
+        let userToken = localStorage.getItem('userToken')
+        props.getUserLocation()
         if (userToken) {
             setIsAuth(true)
             console.log('isAuth inside if', isAuth)
@@ -36,7 +37,7 @@ function Favorites(props) {
         } else {
             setIsAuth(false)
         }
-    },[userToken, isAuth, userId])
+    },[])
 
     console.log('userId', userId)
 
@@ -105,5 +106,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { loadFavorites, addNote, deleteNote, deletePlace })(Favorites)
+export default connect(mapStateToProps, { loadFavorites, addNote, deleteNote, deletePlace, getUserLocation })(Favorites)
 

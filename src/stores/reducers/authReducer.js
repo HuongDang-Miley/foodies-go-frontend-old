@@ -2,10 +2,17 @@ const initialState = {
     isAuth: false,
     registerMessage: "",
     user: {},
+    userLocation: null,
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "GET_USER_LOCATION":
+            console.log('action from get user location', action)
+            return {
+                ...state,
+                userLocation: action.userLocation
+            }
         case "LOGIN":
             console.log('action from login', action)
             return {

@@ -39,14 +39,8 @@ export const login = (email, password) => async dispatch => {
     } catch (error) { throw (error) }
 }
 
-// export const testGoogleAPI = () => async dispatch => {
-//     // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJqTLS3nJZwokRGdkiM6Hj-BU&fields=name,place_id,geometry,rating,price_level,formatted_phone_number,website,url,vicinity,types,reviews&key=AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw`)
-//     let response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.67,-73.95&radius=1500&keyword=burger&key=AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw`)
-//     console.log('show all place detail in action file', response.data)
-
-//     return dispatch({
-//         type: 'TEST_GOOGLE_API',
-//         placeDetail: response.data
-//     })
-// }
-
+export const getUserLocation = (location) => async dispatch => {
+    let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
+    console.log('response.data in action creator', response.data)
+    return dispatch({type: "GET_USER_LOCATION", userLocation: response.data})
+}

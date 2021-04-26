@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
 import './home.css'
 // import Map from './components/map/Map.js'
 // import MapWrapper from './components/map/OldMapModified.js'
@@ -9,14 +10,22 @@ import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
 import { connect } from "react-redux";
 import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from './stores/actions/searchActionCreator'
+import { getUserLocation } from './stores/actions/authActionCreator'
 
 const key = process.env.REACT_APP_GOOGLE_API_KEY
 
 
 
 function Home(props) {
-    console.log('key', key)
+    // props.getUserLocation()
+    // console.log('key', key)
     // console.log('props in Home', props)
+    // const [test, setTest] = useState('hehe')
+    // useEffect(async () => {
+    //         props.getUserLocation()
+    // }, [])
+
+    // console.log(test)
 
     return (
         <div>
@@ -29,7 +38,11 @@ function Home(props) {
             </div>
 
             <div className='map-wrapper'>
-                <FavMap places = {props.places}/>
+                <FavMap
+                    places={props.places}
+                    placeDetail={props.placeDetail}
+                    showPlaceDetail={props.showPlaceDetail}
+                />
                 {/* <Map2 
                 places={props.places}
                 placeDetail={props.placeDetail}
@@ -70,10 +83,11 @@ const mapStateToProps = (state) => {
         places: state.searchReducer.places,
         showPlaceDetail: state.searchReducer.showPlaceDetail,
         placeDetail: state.searchReducer.placeDetail,
-        searchResults: state.searchReducer,
-        isAuth: state.authrReducer,
-        markers: state.mapReducer
+        userLocation: state.authReducer.userLocation
+        // searchResults: state.searchReducer,
+        // isAuth: state.authrReducer,
+        // markers: state.mapReducer
     }
 }
 
-export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail })(Home)
+export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(Home)
