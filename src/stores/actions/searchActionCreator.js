@@ -3,7 +3,7 @@ import sushiPlaces from '../../data/sushiPlaces.json'
 import placeDetail from '../../data/placeDetail.json'
 import burgerPlace from '../../data/burgerPlace.json'
 // const key = process.env.GOOGLE_API_KEY
-const key = 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw'
+// const key = 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw'
 
 export const getNearbySearch = (keyword) => async dispatch => {
     // backend

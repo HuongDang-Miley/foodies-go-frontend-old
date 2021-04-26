@@ -11,10 +11,10 @@ const mapContainerStyle = {
     height: '100vh'
 }
 
-// const center = {
-//     lat: 40.7834345,
-//     lng: -73.9662495
-// }
+const center = {
+    lat: 40.7834345,
+    lng: -73.9662495
+}
 
 
 function FavMap(props) {
@@ -38,7 +38,8 @@ function FavMap(props) {
         if (props.userLocation) {
             setCenterLocation({ lat: props.userLocation.latitude, lng: props.userLocation.longitude })
         }
-    }, [])
+        console.log('props.userLocation in useEffect', props.userLocation)
+    }, [props.userLocation])
 
 
     const onMapCLick = useCallback((event) => {
@@ -57,6 +58,7 @@ function FavMap(props) {
                 mapContainerStyle={mapContainerStyle}
                 zoom={13}
                 center={centerLocation}
+                // center={center}
                 onClick={onMapCLick}
             >
 
@@ -108,6 +110,7 @@ function FavMap(props) {
                         <div>
                             <h3>{selected.name}</h3>
                             <h3>{selected.rating}</h3>
+                            <h3>{selected.vicinity}</h3>
                         </div>
                     </InfoWindow> : null}
 
