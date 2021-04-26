@@ -52,6 +52,8 @@ function PlaceDetail(props) {
         setShowAddToFavBtn(true)
     }
 
+    console.log('props.placeDetail', props.placeDetail)
+
 
     return (
         <div>
@@ -70,7 +72,7 @@ function PlaceDetail(props) {
 
             <h2>Name: {props.placeDetail.name}</h2>
             <p>Rating: {props.placeDetail.rating}</p>
-            <p>{props.placeDetail.reviews.length} Reviews</p>
+            {/* <p>{props.placeDetail.reviews.length} Reviews</p> */}
             <p>Price: {priceLevel(props.placeDetail.price_level)} </p>
             <p>Website: {props.placeDetail.website}</p>
             <p>Address:{props.placeDetail.vicinity}</p>
