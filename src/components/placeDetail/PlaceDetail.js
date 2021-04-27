@@ -8,7 +8,7 @@ import { AddToFavorites, deletePlace } from '../../stores/actions/favActionCreat
 
 
 function PlaceDetail(props) {
-    // console.log('props in Place Detail', props)
+    console.log('props in Place Detail', props)
     // ============================================================================================================
     // Set variable
     // ============================================================================================================
@@ -53,6 +53,7 @@ function PlaceDetail(props) {
         setShowAddToFavBtn(true)
     }
 
+    const [showOpenHour, setShowOpenHour] = useState(false)
 
     return (
         <>
@@ -77,13 +78,18 @@ IF there is a placeDetail, show it
 
 
                     <h2>{props.placeDetail.name}</h2>
-                    {/* <p>{props.placeDetail.types[0]}</p> */}
+                    <p>{props.placeDetail.types[0]}</p>
                     <p>Rating: {props.placeDetail.rating}</p>
                     <p>{props.placeDetail.reviews.length} Reviews</p>
                     <p>Price: {priceLevel(props.placeDetail.price_level)} </p>
                     <p>Website: {props.placeDetail.website}</p>
                     <p>Address:{props.placeDetail.vicinity}</p>
                     <p>Phone: {props.placeDetail.formatted_phone_number}</p>
+                    <p>{props.placeDetail.opening_hours.open_now ? 'Open Now' : 'Close'}
+                        <span onClick={() => setShowOpenHour(true)}> Open Hours:  ▼ </span></p>
+                    {showOpenHour ?
+                        <div>{props.placeDetail.opening_hours.weekday_text.map(item => <p>{item}</p>)}</div>
+                        : null}
                     <h3>Reviews</h3>
 
                     {/* ============================================================================================================
