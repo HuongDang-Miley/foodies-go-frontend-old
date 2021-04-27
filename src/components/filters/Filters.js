@@ -7,9 +7,9 @@ function Filters(props) {
 
     return (
         <div className='filters-wrapper'>
-            <select
-                onChange={(event) => props.getfilterList(props.placesWithNoFilter, event.target.value, null)}
-                id="rating">
+            <select id="rating"
+                onChange={(event) => props.getfilterList(props.placesWithNoFilter, event.target.value, null, null)}
+            >
                 <option value='none' defaultValue hidden>Rating</option>
                 <option value="">Any Rating</option>
                 <option value="2">2 stars</option>
@@ -18,9 +18,9 @@ function Filters(props) {
                 <option value="5">5 stars</option>
             </select>
 
-            <select
-                onChange={(event) => props.getfilterList(props.placesWithNoFilter, null, event.target.value)}
-                id="price">
+            <select id="price"
+                onChange={(event) => props.getfilterList(props.placesWithNoFilter, null, event.target.value, null)}
+            >
                 <option value='none' defaultValue hidden>Price</option>
                 <option value=''>All Price</option>
                 <option value="1">$</option>
@@ -29,12 +29,12 @@ function Filters(props) {
                 <option value="4">$$$$</option>
             </select>
 
-            <select id="open-hour">
+            <select id="open-hour"
+                onChange={(event) => props.getfilterList(props.placesWithNoFilter, null, null, event.target.value)}
+            >
                 <option value='none' defaultValue hidden>Open Hour</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value={true}>Open Now</option>
+                <option value="">Any Time</option>
             </select>
         </div>
     )

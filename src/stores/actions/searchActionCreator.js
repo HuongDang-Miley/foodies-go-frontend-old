@@ -40,20 +40,24 @@ export const togglePlaceDetail = (boolean) => dispatch => {
 }
 
 
-export const getfilterList = (places, rating = null, price = null) => dispatch => {
+export const getfilterList = (places, rating = null, price = null, openHour = null) => dispatch => {
     let copyArr = [...places]
 
-    // if (rating !== null && rating !== '') {
     if (rating) {
-        copyArr = copyArr.filter(item => Number(item.rating) > Number(rating) && Number(item.rating) < Number(rating) + 1)
+        copyArr = copyArr.filter(item =>
+            Number(item.rating) > Number(rating) && Number(item.rating) < Number(rating) + 1)
     }
 
-    // if (price !== null) {
     if (price) {
         copyArr = copyArr.filter(item => Number(item.price_level) === Number(price))
     }
 
-    console.log('copyArr ', copyArr)
+    if (openHour) {
+        console.log('openHour', openHour)
+        copyArr = copyArr
+            .filter(item => item.business_status === 'OPERATIONAL')
+            .filter(item => item.opening_hours.open_now === true)
+    }
 
     return dispatch({
         type: 'FILTER',
