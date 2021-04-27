@@ -41,5 +41,8 @@ export const login = (email, password) => async dispatch => {
 export const getUserLocation = (location) => async dispatch => {
     let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
     // console.log('response.data in action creator', response.data)
-    return dispatch({type: "GET_USER_LOCATION", userLocation: response.data})
+    return dispatch({type: "GET_USER_LOCATION",
+     userLocation: response.data,
+     userLatLng: `${response.data.latitude},${response.data.longitude}`
+    })
 }

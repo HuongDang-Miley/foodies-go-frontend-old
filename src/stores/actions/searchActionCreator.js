@@ -1,22 +1,25 @@
 import axios from 'axios'
 import placeDetail from '../../data/placeDetail.json'
+const key = process.env.GOOGLE_API_KEY
 // import sushiPlaces from '../../data/sushiPlaces.json'
 // import burgerPlace from '../../data/burgerPlace.json'
-// const key = process.env.GOOGLE_API_KEY
 // const key = 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw'
 
-export const getNearbySearch = (keyword) => async dispatch => {
-    // backend
-    let response = await axios.get(`http://localhost:4000/api/search/near-by-search/${keyword}`)
+export const getNearbySearch = (keyword, location) => async dispatch => {
+    // backend take in only keyword
+    // let response = await axios.get(`http://localhost:4000/api/search/near-by-search/${keyword}`)
+    //backend take in keyword and location
+    let response = await axios.get(`http://localhost:4000/api/search/near-by-search`, { params: { keyword: keyword, location: location } })
     // frontend
     // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.67,-73.95&radius=1500&keyword=${keyword}&key=${key}`)
-
+    console.log('response.data', response.data)
     return dispatch({
         type: "SHOW_NEARBY_SEARCH",
         results: response.data.results,  //<== result from google api call frontend/backend 
         // results: sushiPlaces.results //<== result of hardcode 
     })
 }
+
 
 export const getPlaceDetail = (id) => async dispatch => {
     // console.log('placeDetail', placeDetail)
@@ -68,5 +71,10 @@ export const getfilterList = (places, rating = null, price = null, openHour = nu
 
 export const mouseEnter = (place) => dispatch => {
     return dispatch({ type: 'MOUSE_ENTER', place: place })
+}
+
+export const getSearchWord = (keyword) => dispatch => {
+    console.log('keyword in Action Creator', keyword)
+    return dispatch({ type: 'GET_SEARCH_WORD', text: keyword })
 }
 

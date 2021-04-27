@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import './topNav.css'
 import { useHistory, Link } from 'react-router-dom';
-import { getNearbySearch, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
+import { getNearbySearch, togglePlaceDetail, getSearchWord } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
 function TopNav(props) {
@@ -40,7 +40,8 @@ function TopNav(props) {
     const handleSearch = (event) => {
         event.preventDefault()
         props.togglePlaceDetail(false)
-        props.getNearbySearch(searchRef.current.value)
+        props.getNearbySearch(searchRef.current.value, props.userLatLng)
+        props.getSearchWord(searchRef.current.value)
         searchRef.current.value = ''
         history.push('./home')
     }
@@ -72,7 +73,8 @@ function TopNav(props) {
 
 const mapStateToProps = (state) => {
     return {
-        userLocation: state.authReducer.userLocation
+        userLocation: state.authReducer.userLocation,
+        userLatLng: state.authReducer.userLatLng
     }
 }
-export default connect(mapStateToProps, { getUserLocation, getNearbySearch, togglePlaceDetail })(TopNav)
+export default connect(mapStateToProps, { getUserLocation, getNearbySearch, togglePlaceDetail, getSearchWord })(TopNav)

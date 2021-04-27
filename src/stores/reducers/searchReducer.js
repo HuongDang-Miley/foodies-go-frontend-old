@@ -4,13 +4,20 @@ const initialState = {
     places: [],
     hoveredPlace: null,
     placeDetail: null,
-    showPlaceDetail: false
+    showPlaceDetail: false,
+    keyword: null,
 }
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "MOUSE_ENTER":
+        case 'GET_SEARCH_WORD':
             console.log(action)
+            return {
+                ...state,
+                keyword: action.text
+            }
+        case "MOUSE_ENTER":
+            // console.log(action)
             return {
                 ...state,
                 hoveredPlace: action.place
