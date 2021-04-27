@@ -1,24 +1,26 @@
-import React from 'react'
-import PlaceContainer from '../placeContainer/PlaceContainer'
-import PlaceDetail from '../placeDetail/PlaceDetail'
+import React, { useState } from 'react'
 import './sidebar.css'
 import { connect } from "react-redux";
+import PlaceContainer from '../placeContainer/PlaceContainer'
+import Filters from '../filters/Filters'
+import { getfilterList } from '../../stores/actions/searchActionCreator'
+
 
 function Sidebar(props) {
-    // console.log('props in sidebar', props)
+    console.log('props in sidebar', props)
 
     return (
         <>
-            {props.showPlaceDetail
-                ? <PlaceDetail />
-                : <>
-                    <div className='filter-bar'>{props.places.length} Results</div>
-                    {props.places.map(place =>
-                        <div key={place.place_id}>
-                            <PlaceContainer place={place} />
-                        </div>
-                    )}
-                </>}
+            <div className='filters-bar'>
+                <p className='result-text'>{props.places.length} Results</p>
+                <div className='filters'><Filters /></div>
+            </div>
+            {props.places.length === 0
+                ? null
+                : <div className='placelist-wrapper'>
+                    {props.places.map(item => <PlaceContainer place={item} key={item.place_id} />)}
+                </div>
+            }
         </>
     )
 }
@@ -30,4 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps, { getfilterList })(Sidebar)

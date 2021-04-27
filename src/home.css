@@ -27,8 +27,11 @@
     left: 0px;
     width: 478px;
     z-index: 1;
-    background-color: white;
+    
     height: 100%;
     overflow: scroll;
 }
 
+.placeDetail-wrapper {
+    background-color: white;
+}

@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { Route, Redirect, useHistory, NavLink, Link } from 'react-router-dom';
-
-export default function Test() {
-    let history = useHistory()
-    let [isAuth, setIsAuth] = useState(false)
-
-    useEffect(() => {
-        let userToken = localStorage.getItem('userToken')
-        if (userToken) {
-            setIsAuth(true)
-        } else {
-            setIsAuth(false)
-        }
-    })
+let arr = [
+    { name: 'sushi', price: 0, rating: 0 },
+    { name: 'taco', price: 0, rating: 3 },
+    { name: 'fish', price: 1, rating: 2 },
+    { name: 'chicken', price: 1, rating: 1 },
+    { name: 'beef', price: 2, rating: 3 },
+    { name: 'burger', price: 3, rating: 4 },
+    { name: 'noodle', price: 3, rating: 5 },
+    { name: 'ramen', price: 4, rating: 4 },
+    { name: 'bread', price: 4, rating: 2 },
+]
 
 
+// make a function that if rating/ price click sort the arr accordingly
 
-    return (
-        <div>
-            {isAuth ? 'There is token ' : 'Please Login to see data'}
-            {/* {isAuth ? 'There is token ' : 'no token'} */}
-            {/* {isAuth ? 'This is Test page' : <Redirect to='/login' />} */}
-            {/* {isAuth ? 'This is Test page' : <Route><Redirect to='/login' /></Route>} */}
-        </div>
-    )
+let filter = (price = null, rating = null) => {
+    price
+    let copyArr = [...arr]
+    if (price !== null) {
+        copyArr = copyArr.filter(item => item.price === price)
+    }
+    if (rating !== null) {
+        copyArr = copyArr.filter(item => item.rating === rating)
+    }
+    return copyArr
 }
+
+let result = filter(null, 3)
+result

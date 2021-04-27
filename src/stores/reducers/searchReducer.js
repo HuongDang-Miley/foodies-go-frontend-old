@@ -1,6 +1,8 @@
 
 const initialState = {
+    placesWithNoFilter: [],
     places: [],
+    // filteredList: [],
     // placeDetail: {},
     placeDetail: null,
     showPlaceDetail: false
@@ -8,6 +10,15 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "FILTER":
+            console.log(action)
+            return {
+                ...state,
+                // places: action.places,
+                // filteredList: action.filteredList
+                places: action.filteredList
+            }
+
         case 'TOGGLE_PLACE_DETAIL':
             return {
                 ...state,
@@ -22,7 +33,10 @@ const searchReducer = (state = initialState, action) => {
         case 'SHOW_NEARBY_SEARCH':
             return {
                 ...state,
-                places: action.results,
+                // places: action.results,
+                // filteredList: action.results
+                placesWithNoFilter: action.results,
+                places: action.results
             }
 
         default: return state

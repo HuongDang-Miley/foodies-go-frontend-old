@@ -22,7 +22,6 @@ function TopNav(props) {
     }
 
     useEffect(() => {
-        console.log('useEffect')
         props.getUserLocation()
         // let getUserToken = async () => {
         //     let userToken = await localStorage.getItem('userToken')
@@ -36,7 +35,7 @@ function TopNav(props) {
     }, [])
 
 
-    console.log('isAuth from TopNav', isAuth)
+    // console.log('isAuth from TopNav', isAuth)
 
     const handleSearch = (event) => {
         event.preventDefault()
