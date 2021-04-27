@@ -2,15 +2,21 @@
 const initialState = {
     placesWithNoFilter: [],
     places: [],
-    // filteredList: [],
+    hoveredPlace: null,
     placeDetail: null,
     showPlaceDetail: false
 }
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "FILTER":
+        case "MOUSE_ENTER":
             console.log(action)
+            return {
+                ...state,
+                hoveredPlace: action.place
+            }
+
+        case "FILTER":
             return {
                 ...state,
                 places: action.filteredList
@@ -21,7 +27,7 @@ const searchReducer = (state = initialState, action) => {
                 ...state,
                 showPlaceDetail: action.showPlaceDetail
             }
-            
+
         case 'SHOW_PLACE_DETAIL':
             console.log(action.placeDetail)
             return {

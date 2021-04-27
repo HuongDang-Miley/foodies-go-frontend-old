@@ -3,11 +3,11 @@ import './sidebar.css'
 import { connect } from "react-redux";
 import PlaceContainer from '../placeContainer/PlaceContainer'
 import Filters from '../filters/Filters'
-import { getfilterList } from '../../stores/actions/searchActionCreator'
+import { getfilterList, mouseEnter } from '../../stores/actions/searchActionCreator'
 
 
 function Sidebar(props) {
-    console.log('props in sidebar', props)
+    // console.log('props in sidebar', props)
 
     return (
         <>
@@ -17,7 +17,7 @@ function Sidebar(props) {
             </div>
             {props.places.length === 0
                 ? null
-                : <div className='placelist-wrapper'>
+                : <div className='placelist-wrapper'  onMouseLeave={() => props.mouseEnter(null)}  >
                     {props.places.map(item => <PlaceContainer place={item} key={item.place_id} />)}
                 </div>
             }
@@ -28,8 +28,8 @@ function Sidebar(props) {
 const mapStateToProps = (state) => {
     return {
         places: state.searchReducer.places,
-        showPlaceDetail: state.searchReducer.showPlaceDetail,
+        // showPlaceDetail: state.searchReducer.showPlaceDetail,
     }
 }
 
-export default connect(mapStateToProps, { getfilterList })(Sidebar)
+export default connect(mapStateToProps, { getfilterList, mouseEnter })(Sidebar)

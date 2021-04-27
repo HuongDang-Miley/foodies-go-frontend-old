@@ -1,7 +1,7 @@
 import axios from 'axios'
-import sushiPlaces from '../../data/sushiPlaces.json'
 import placeDetail from '../../data/placeDetail.json'
-import burgerPlace from '../../data/burgerPlace.json'
+// import sushiPlaces from '../../data/sushiPlaces.json'
+// import burgerPlace from '../../data/burgerPlace.json'
 // const key = process.env.GOOGLE_API_KEY
 // const key = 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw'
 
@@ -27,8 +27,8 @@ export const getPlaceDetail = (id) => async dispatch => {
 
     return dispatch({
         type: 'SHOW_PLACE_DETAIL',
-        // placeDetail: response.data.result  //<== result from google api call frontend/backend 
-        placeDetail: placeDetail.result  //<== result of hardcode frontend
+        placeDetail: response.data.result  //<== result from google api call frontend/backend 
+        // placeDetail: placeDetail.result  //<== result of hardcode frontend
     })
 }
 
@@ -45,15 +45,16 @@ export const getfilterList = (places, rating = null, price = null, openHour = nu
 
     if (rating) {
         copyArr = copyArr.filter(item =>
-            Number(item.rating) > Number(rating) && Number(item.rating) < Number(rating) + 1)
+            Number(item.rating) > Number(rating)
+            && Number(item.rating) < Number(rating) + 1)
     }
 
     if (price) {
-        copyArr = copyArr.filter(item => Number(item.price_level) === Number(price))
+        copyArr = copyArr.filter(item =>
+            Number(item.price_level) === Number(price))
     }
 
     if (openHour) {
-        console.log('openHour', openHour)
         copyArr = copyArr
             .filter(item => item.business_status === 'OPERATIONAL')
             .filter(item => item.opening_hours.open_now === true)
@@ -63,5 +64,9 @@ export const getfilterList = (places, rating = null, price = null, openHour = nu
         type: 'FILTER',
         filteredList: copyArr
     })
+}
+
+export const mouseEnter = (place) => dispatch => {
+    return dispatch({ type: 'MOUSE_ENTER', place: place })
 }
 

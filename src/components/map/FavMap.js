@@ -19,7 +19,7 @@ const center = {
 
 
 function FavMap(props) {
-    // console.log('props in FavMap', props)
+    // console.log('placeDetail location in FavMap', props.placeDetail.geometry.location)
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: 'AIzaSyALhFgmCW6bVy6JdBOF_ccNtu1NgrfRxiw',
@@ -51,9 +51,15 @@ function FavMap(props) {
     }, [])
 
 
-    const handleShowPlaceDetail = (id) => {
+    const handleShowInfoWindow = (id) => {
         props.togglePlaceDetail(true)
         props.getPlaceDetail(id)
+    }
+
+    const changeMarkerIcon = (item) => {
+        if (props.hoveredPlace && item.place_id === props.hoveredPlace.place_id) { return 'favicon.ico' }
+        if (props.showPlaceDetail && props.placeDetail && item.place_id === props.placeDetail.place_id) { return 'favicon.ico' }
+        return null
     }
 
     if (loadError) return 'Error Loading Map'
@@ -97,6 +103,8 @@ function FavMap(props) {
                 {props.places.map((item) =>
                     <Marker
                         key={item.place_id}
+                        icon={changeMarkerIcon(item)}
+                        // icon={item.geometry.location === props.hoveredPlace ? 'favicon.ico' : null}
                         position={{
                             lat: item.geometry.location.lat,
                             lng: item.geometry.location.lng
@@ -114,21 +122,21 @@ function FavMap(props) {
                         onCloseClick={() => { setSelected(null) }}
                         position={selected.geometry.location}
                     >
-                        <div onClick={() => handleShowPlaceDetail(selected.place_id)}>
+                        <div onClick={() => handleShowInfoWindow(selected.place_id)}>
                             <h3>{selected.name}</h3>
                             <h3>{selected.rating}</h3>
                             <h3>{selected.vicinity}</h3>
                         </div>
                     </InfoWindow> : null}
 
-                {props.placeDetail && props.showPlaceDetail && showPlaceDetailInfoWindow ?
+                {/* {props.placeDetail && props.showPlaceDetail && showPlaceDetailInfoWindow ?
                     <InfoWindow position={props.placeDetail.geometry.location}>
                         <div>
                             <h3>{props.placeDetail.name}</h3>
                             <h3>{props.placeDetail.rating}</h3>
                         </div>
                     </InfoWindow>
-                    : null}
+                    : null} */}
             </GoogleMap>
         </div>
     );
@@ -139,9 +147,10 @@ const mapStateToProps = (state) => {
         places: state.searchReducer.places,
         showPlaceDetail: state.searchReducer.showPlaceDetail,
         placeDetail: state.searchReducer.placeDetail,
-        userLocation: state.authReducer.userLocation
+        hoveredPlace: state.searchReducer.hoveredPlace,
+        userLocation: state.authReducer.userLocation,
     }
 }
-export default connect(mapStateToProps , { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(FavMap)
+export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(FavMap)
 // export default FavMap;
 
