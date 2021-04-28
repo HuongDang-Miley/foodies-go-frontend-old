@@ -1,0 +1,380 @@
+{
+    "geocoded_waypoints": [
+        {
+            "geocoder_status": "OK",
+            "partial_match": true,
+            "place_id": "ChIJYeZuBI9YwokRjMDs_IEyCwo",
+            "types": [
+                "political",
+                "sublocality",
+                "sublocality_level_1"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJAdCFFTBYwokRlJoILVmfTyU",
+            "types": [
+                "locality",
+                "political"
+            ]
+        }
+    ],
+    "routes": [
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": 40.7829708,
+                    "lng": -73.9710394
+                },
+                "southwest": {
+                    "lat": 40.7549194,
+                    "lng": -74.02816179999999
+                }
+            },
+            "copyrights": "Map data ©2021 Google",
+            "legs": [
+                {
+                    "distance": {
+                        "text": "5.5 mi",
+                        "value": 8772
+                    },
+                    "duration": {
+                        "text": "20 mins",
+                        "value": 1190
+                    },
+                    "end_address": "Weehawken, NJ 07086, USA",
+                    "end_location": {
+                        "lat": 40.7664117,
+                        "lng": -74.02546389999999
+                    },
+                    "start_address": "Manhattan, New York, NY, USA",
+                    "start_location": {
+                        "lat": 40.7829708,
+                        "lng": -73.9710394
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0.3 mi",
+                                "value": 443
+                            },
+                            "duration": {
+                                "text": "2 mins",
+                                "value": 90
+                            },
+                            "end_location": {
+                                "lat": 40.7794829,
+                                "lng": -73.97358109999999
+                            },
+                            "html_instructions": "Head <b>southwest</b> on <b>Central Park West</b> toward <b>W 82nd St</b>",
+                            "polyline": {
+                                "points": "ql|wF~mnbMr@d@t@d@z@j@PL~@l@^V^T^V\\V^TLH^VVP~@l@^T\\VXPDBFDv@f@"
+                            },
+                            "start_location": {
+                                "lat": 40.7829708,
+                                "lng": -73.9710394
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 273
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 58
+                            },
+                            "end_location": {
+                                "lat": 40.7806721,
+                                "lng": -73.97641729999999
+                            },
+                            "html_instructions": "Turn <b>right</b> onto <b>W 77th St</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "wv{wFz}nbMeAdD[~@i@dBs@zBm@nB"
+                            },
+                            "start_location": {
+                                "lat": 40.7794829,
+                                "lng": -73.97358109999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.9 mi",
+                                "value": 1456
+                            },
+                            "duration": {
+                                "text": "5 mins",
+                                "value": 294
+                            },
+                            "end_location": {
+                                "lat": 40.76921230000001,
+                                "lng": -73.9847724
+                            },
+                            "html_instructions": "Turn <b>left</b> onto <b>Columbus Ave</b><div style=\"font-size:0.9em\">Pass by Chase Bank (on the right in 0.2&nbsp;mi)</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "e~{wFroobMhAx@VP^V~BzATHr@d@RLb@XTNpAz@BBFBBBDDRPZVHBnAz@dCbBRLj@^\\T^TRNlAv@RNZRl@^XR^TRNfBjA|BzAd@Z^VPHHFXRRLr@d@dAl@p@f@l@`@LHp@d@\\Vh@\\jAp@\\TTLj@`@@@|@l@JHdAn@l@`@PH"
+                            },
+                            "start_location": {
+                                "lat": 40.7806721,
+                                "lng": -73.97641729999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1.1 mi",
+                                "value": 1717
+                            },
+                            "duration": {
+                                "text": "6 mins",
+                                "value": 345
+                            },
+                            "end_location": {
+                                "lat": 40.7557044,
+                                "lng": -73.99464879999999
+                            },
+                            "html_instructions": "At Starbucks, continue onto <b>9th Ave</b><div style=\"font-size:0.9em\">Parts of this road are closed Mon–Fri 4:00 – 7:00 PM</div><div style=\"font-size:0.9em\">Pass by Duane Reade (on the right in 0.5&nbsp;mi)</div>",
+                            "polyline": {
+                                "points": "qvywFxcqbMp@d@dAr@d@Z`An@^Tb@XjAv@XNHFpBpA`An@z@j@jAx@n@b@bAp@t@f@^X|AbAp@d@lAt@zBzAt@f@TNn@b@|BxAz@j@B@^V\\T|@l@~@l@tAx@f@^XRB@|@j@^Tt@f@nAx@TN@@z@n@@?\\VHFRLZR^Tr@b@xBzA|@l@XNb@Xj@`@"
+                            },
+                            "start_location": {
+                                "lat": 40.76921230000001,
+                                "lng": -73.9847724
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "171 ft",
+                                "value": 52
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 11
+                            },
+                            "end_location": {
+                                "lat": 40.7553261,
+                                "lng": -73.9949879
+                            },
+                            "html_instructions": "Slight <b>right</b> to stay on <b>9th Ave</b>",
+                            "maneuver": "turn-slight-right",
+                            "polyline": {
+                                "points": "cbwwFpasbM?B?@@B?@@@BB`Ap@"
+                            },
+                            "start_location": {
+                                "lat": 40.7557044,
+                                "lng": -73.99464879999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 296
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 48
+                            },
+                            "end_location": {
+                                "lat": 40.7563822,
+                                "lng": -73.9949785
+                            },
+                            "html_instructions": "Take the ramp onto <b>NY-495 W</b>",
+                            "polyline": {
+                                "points": "y_wwFtcsbMz@j@B@BB@BBB@DBF@`@?@?BITADABQh@CHAFABA@CBA@CBC?C@C?A?C?EAAACAEEMU?Ao@eAa@m@EGCEEGEEGEEECGCAEEECECCAEAEAE?EAE?E?E?"
+                            },
+                            "start_location": {
+                                "lat": 40.7553261,
+                                "lng": -73.9949879
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.9 mi",
+                                "value": 1453
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 84
+                            },
+                            "end_location": {
+                                "lat": 40.7631296,
+                                "lng": -74.00948579999999
+                            },
+                            "html_instructions": "Keep <b>right</b> at the fork to stay on <b>NY-495 W</b><div style=\"font-size:0.9em\">Parts of this road may be closed at certain times or days</div><div style=\"font-size:0.9em\">Entering New Jersey</div>",
+                            "maneuver": "fork-right",
+                            "polyline": {
+                                "points": "kfwwFrcsbMG?E?C@E@E@E@E@EBGBWNEBGDCBMLEDGJA?ILABCBADS^ABMVA@CDADS^ABi@dAABS`@MVABQ\\CBABEF_@x@GLADGNOd@KZGPM`@ITEPQf@Mj@Ib@G\\Kl@CVALCJCLOb@Qh@Qh@gAbDoA~DoA|DK`@ABUt@[~@CH_@hAk@dBIVEPIVQh@Qf@ERc@pAIVi@dBITs@|BcAdDyBbH"
+                            },
+                            "start_location": {
+                                "lat": 40.7563822,
+                                "lng": -73.9949785
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.9 mi",
+                                "value": 1520
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 70
+                            },
+                            "end_location": {
+                                "lat": 40.7647894,
+                                "lng": -74.0241197
+                            },
+                            "html_instructions": "Continue onto <b>NJ-495 W</b><div style=\"font-size:0.9em\">Parts of this road may be closed at certain times or days</div>",
+                            "polyline": {
+                                "points": "qpxwFh~ubMuC~Ia@rAQh@kCjI]fAEHOh@u@zBOh@Qf@wAnEmD~KgAdD[pAOv@Ij@E\\?@?@Ed@?\\Ax@@N@X?D?B@J@TD\\BJBJ?D@DFVBFBJ?@HXNb@JPHRZ`@Z^hAx@JLn@h@`@ZdAt@RLHFv@`@JDJ?RHLDXN"
+                            },
+                            "start_location": {
+                                "lat": 40.7631296,
+                                "lng": -74.00948579999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 305
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 25
+                            },
+                            "end_location": {
+                                "lat": 40.7625414,
+                                "lng": -74.0259978
+                            },
+                            "html_instructions": "Take the exit toward <b>Willow Ave</b>/<wbr/><b>Weenhawken</b>/<wbr/><b>Hoboken</b>",
+                            "maneuver": "ramp-right",
+                            "polyline": {
+                                "points": "}zxwFvyxbMBH@D@@VPNNFJp@~@NRDJDFJPJPFLFH@?FHNHNLLJPJLF@?^NBBTHDBJDVHn@ZJBX?"
+                            },
+                            "start_location": {
+                                "lat": 40.7647894,
+                                "lng": -74.0241197
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 314
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 47
+                            },
+                            "end_location": {
+                                "lat": 40.7600634,
+                                "lng": -74.0277452
+                            },
+                            "html_instructions": "Merge onto <b>Park Ave</b>",
+                            "maneuver": "merge",
+                            "polyline": {
+                                "points": "{lxwFneybM|AbAl@d@bAz@ZVXPv@l@l@^j@Xb@Nr@T"
+                            },
+                            "start_location": {
+                                "lat": 40.7625414,
+                                "lng": -74.0259978
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "82 ft",
+                                "value": 25
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 6
+                            },
+                            "end_location": {
+                                "lat": 40.7601044,
+                                "lng": -74.02803279999999
+                            },
+                            "html_instructions": "Turn <b>right</b> onto <b>19th St</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "k}wwFlpybMGv@"
+                            },
+                            "start_location": {
+                                "lat": 40.7600634,
+                                "lng": -74.0277452
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.5 mi",
+                                "value": 840
+                            },
+                            "duration": {
+                                "text": "2 mins",
+                                "value": 92
+                            },
+                            "end_location": {
+                                "lat": 40.7669782,
+                                "lng": -74.0249467
+                            },
+                            "html_instructions": "Turn <b>right</b> onto <b>Hackensack Ave</b>/<wbr/><b>Hackensack Plank Rd</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "s}wwFdrybMGFGFGBG@C@I@cA}@_Ao@aAq@CCuAkA]YGG[YYSe@YWMIEWMOI]Ku@YqCw@YKYKs@Se@OYIOC_@Ou@]kAu@YSICWAEAk@EC?[AM@M@MBSFYL_@T"
+                            },
+                            "start_location": {
+                                "lat": 40.7601044,
+                                "lng": -74.02803279999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "256 ft",
+                                "value": 78
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 20
+                            },
+                            "end_location": {
+                                "lat": 40.7664117,
+                                "lng": -74.02546389999999
+                            },
+                            "html_instructions": "Turn <b>left</b> onto <b>Gregory Ave</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "shywF|~xbMBF@DBD@BBBDBLJlAx@"
+                            },
+                            "start_location": {
+                                "lat": 40.7669782,
+                                "lng": -74.0249467
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "ql|wF~mnbMxQvL~AbA_EfMm@nBhAx@v@h@~BzATHfAr@nChBd@^zFzD|BxAlGdEtJnGxBrA~AhAfCdBjDvBpChB~@j@vBxAjDzB`F`DxFxDhPvK~JvGtCfB`Ar@`BbA|CrBdBnAbCzAtFrDj@d@@DfAx@dAt@DHDh@K`@Y~@IJODMCW_@{AaCYYSSUIWAW@WFk@Zi@h@g@~@yDxHmAnDWx@WnAYpBGXa@lAyFjQyClJcVfv@qKx\\gAdD[pAYbBKfAAvABh@Bj@Lz@Pp@HZZt@d@t@Z^hAx@z@v@fBpA\\TbAf@J?RHf@TFPf@`@x@jAf@x@\\h@t@l@`Ab@j@VfAd@d@BjChB~ArApA~@xAx@vAd@Gv@GFOJKBI@cA}@aCaB_CqBu@m@}@g@oAi@{FiBcCq@uAm@eBiAa@Eq@G_@A[Ba@Jy@b@JVdBlA"
+            },
+            "summary": "9th Ave",
+            "warnings": [],
+            "waypoint_order": []
+        }
+    ],
+    "status": "OK"
+}
+
+

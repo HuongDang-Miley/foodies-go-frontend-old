@@ -12,6 +12,9 @@ import './favorites.css'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
 function Favorites(props) {
+
+    
+
     // console.log('props in favorites', props)
     const history = useHistory()
     let [disableDeleteModal, setDisableDeleteModal] = useState(false)
@@ -39,7 +42,7 @@ function Favorites(props) {
         }
     },[])
 
-    console.log('userId', userId)
+    
 
     const logOut = () => {
         localStorage.removeItem('userToken')

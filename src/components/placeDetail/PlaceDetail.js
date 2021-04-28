@@ -71,7 +71,7 @@ IF there is a placeDetail, show it
                         ? <button className='add-to-fav-btn' onClick={() => handleAddToFavorites()}>Add To Favorite</button>
                         : <button className='add-to-fav-btn' onClick={() => handleDetelePlace()}>Delete From Favorite</button>
                     }
-
+                    <button onClick={()=> history.push('/directions')}>Get Directions</button>
                     {/* ============================================================================================================
             Place Detail section
             ============================================================================================================ */}

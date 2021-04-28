@@ -19,7 +19,7 @@ const center = {
 
 
 function FavMap(props) {
-    console.log('props location in FavMap', props)
+    // console.log('props location in FavMap', props)
 
     /******************************************************************************************************************************
     *                   Declare vairable
@@ -174,10 +174,10 @@ function FavMap(props) {
 
                 <DirectionsService
                     options={{
-                        destination: { lat: 40.7386556, lng: -74.02963889999999 },
                         // origin: { centerLocation },
-                        origin: { lat: 40.7681, lng: -74.0208 },
-                        travelMode: 'DRIVING'
+                        // destination: { lat: 40.7386556, lng: -74.02963889999999 },
+                        // origin: { lat: 40.7681, lng: -74.0208 },
+                        // travelMode: 'DRIVING'
                     }}
                     callback={directionsCallback}
                 />
