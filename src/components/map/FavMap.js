@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import { connect } from "react-redux";
-import { GoogleMap, useLoadScript, Marker, InfoWindow, DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, InfoWindow, DirectionsRenderer, DirectionsService } from '@react-google-maps/api';
 import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
@@ -19,7 +19,7 @@ const center = {
 
 
 function FavMap(props) {
-    console.log('props location in FavMap', props.keyword)
+    console.log('props location in FavMap', props)
 
     /******************************************************************************************************************************
     *                   Declare vairable
@@ -29,6 +29,7 @@ function FavMap(props) {
 
     // const [center, setCenter] = useState(null)
     // const [marker, setMaker] = useState(null)
+    let [directions, setDirections] = useState("");
     const [selected, setSelected] = useState(null)
     const [userAddress, setUserAddress] = useState(null)
     const [showPlaceDetailInfoWindow, setShowPlaceDetailInfoWindow] = useState(true)
@@ -51,8 +52,16 @@ function FavMap(props) {
         }
     }, [props.userLocation])
 
-    const getKeyword = () => {
-        return props.keyword
+
+    const directionsCallback = (response) => {
+        console.log(response)
+        if (response !== null) {
+            if (response.status === 'OK') {
+                setDirections(response)
+            } else {
+                console.log('response: ', response)
+            }
+        }
     }
 
     // const onMapCLick = useCallback((event) => {
@@ -160,11 +169,20 @@ function FavMap(props) {
                     </InfoWindow> : null}
 
 /******************************************************************************************************************************
-*                     Show PlaceDetail marker and InfoWindow if clicked
+*                     Show Direction
 ******************************************************************************************************************************/
-                    {/* <DirectionsRenderer 
-                     options={{ directions: this.state.response}}
-                    /> */}
+
+                <DirectionsService
+                    options={{
+                        destination: { lat: 40.7386556, lng: -74.02963889999999 },
+                        // origin: { centerLocation },
+                        origin: { lat: 40.7681, lng: -74.0208 },
+                        travelMode: 'DRIVING'
+                    }}
+                    callback={directionsCallback}
+                />
+                {directions ? <DirectionsRenderer options={{ directions }} /> : null}
+
             </GoogleMap>
         </div>
     );
