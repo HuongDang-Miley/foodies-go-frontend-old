@@ -26,6 +26,9 @@ const BackUpRoutesMap = (props) => {
             // travelMode = props.travelMode
             renderMap()
         }
+        // if (startPoint.lat !== null && endPoint.lat !== null) {
+        //     initMap()
+        // }
     }, [props.placeDetail, startPoint.lat])
 
     // console.log('run outside useEffect startLocation:', startLocation, 'endLocation:', endLocation, 'travelMode:', travelMode)
@@ -36,12 +39,12 @@ const BackUpRoutesMap = (props) => {
         window.initMap = initMap
     }
 
-    // const createMap = () => {
-    //     var map = new window.google.maps.Map(document.getElementById('map'), {
+    // // const createMap = () => {
+    //     const map = new window.google.maps.Map(document.getElementById('map'), {
     //         center: { lat: 40.7834345, lng: -73.9662495 },
     //         zoom: 13
     //     })
-    // }
+    // // }
 
     // console.log('createMap', createMap)
     // Map content
@@ -113,7 +116,7 @@ const BackUpRoutesMap = (props) => {
             console.log('place lat', place.geometry.location.lat())
             console.log('place long', place.geometry.location.lng())
             setStartPoint({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() })
-            // console.log('startLocation inside onPlaceChange', startLocation)
+            // console.log('startLocation insidçe onPlaceChange', startLocation)
         } else {
             console.log('Autocomplete is not loaded yet!')
         }
@@ -125,6 +128,8 @@ const BackUpRoutesMap = (props) => {
     return (
         <div>
             <div className='directions-wrapper'>
+                <p>{props.duration}</p>
+                <p>{props.distance}</p>
                 <Autocomplete
                     onLoad={onLoad}
                     onPlaceChanged={onPlaceChanged}
