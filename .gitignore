@@ -11,6 +11,9 @@
 # production
 /build
 
+#Local Link To Backend
+/src/stores/actions/Axios.js
+
 # misc
 .DS_Store
 .env.local

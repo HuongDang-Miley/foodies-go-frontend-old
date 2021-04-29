@@ -1,5 +1,6 @@
 
 
+import Axios from './Axios.js'
 import axios from 'axios'
 
 export const AddToFavorites = (userId, place) => async dispatch => {
@@ -16,7 +17,8 @@ export const AddToFavorites = (userId, place) => async dispatch => {
         note: null
     }
 
-    await axios.post('http://localhost:4000/api/favorites/addToFavorites', { userId: userId, place: addPlace })
+    // await axios.post('http://localhost:3001/api/favorites/addToFavorites', { userId: userId, place: addPlace }) //=> currently working
+    await Axios.post('http://localhost:3001/api/favorites/addToFavorites', { userId: userId, place: addPlace })
     return dispatch({
         type: 'ADD_TO_FAVORITES',
         newPlace: place
@@ -29,10 +31,11 @@ export const AddToFavorites = (userId, place) => async dispatch => {
 
 export const loadFavorites = (id) => async dispatch => {
     // use query in the link
-    // let response = await axios.get(`http://localhost:4000/api/favorites/loadFavorites?mileydawn=${"6080bf62ff140a8cd8cfad14"}`)
+    // let response = await axios.get(`http://localhost:3001/api/favorites/loadFavorites?mileydawn=${"6080bf62ff140a8cd8cfad14"}`)
 
     //use query not in the link
-    let response = await axios.get('http://localhost:4000/api/favorites/loadFavorites', { params: { userId: id } })
+    // let response = await axios.get('http://localhost:3001/api/favorites/loadFavorites', { params: { userId: id } }) <= currently working
+    let response = await Axios.get('favorites/loadFavorites', { params: { userId: id } })
     console.log('response in fvaction Creator', response.data)
 
     return dispatch({
@@ -47,7 +50,7 @@ export const loadFavorites = (id) => async dispatch => {
 
 export const addNote = (favList, userId, placeId, note) => async dispatch => {
 
-    await axios.post('http://localhost:4000/api/favorites/addNote', {
+    await axios.post('http://localhost:3001/api/favorites/addNote', {
         userId: userId,
         placeId: placeId,
         note: note
@@ -70,7 +73,8 @@ export const addNote = (favList, userId, placeId, note) => async dispatch => {
 
 export const deleteNote = (favList, userId, placeId) => async dispatch => {
 
-    await axios.post('http://localhost:4000/api/favorites/addNote', {
+    // await axios.post('http://localhost:3001/api/favorites/addNote', { //< currently working
+    await Axios.post('favorites/addNote', {
         userId: userId,
         placeId: placeId,
         note: null
@@ -94,7 +98,7 @@ export const deleteNote = (favList, userId, placeId) => async dispatch => {
 export const deletePlace = (favList, userId, placeId) => async dispatch => {
     
 
-    await axios.delete('http://localhost:4000/api/favorites/deletePlace', {
+    await Axios.delete('favorites/deletePlace', {
         params: {
             userId: userId,
             placeId: placeId,

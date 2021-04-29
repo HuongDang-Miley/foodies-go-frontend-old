@@ -5,7 +5,7 @@ import axios from 'axios'
 export const register = (username, email, password) => async dispatch => {
     let userInfo = { username, email, password };
     try {
-        let newUser = await axios.post('http://localhost:4000/api/users/register', userInfo)
+        let newUser = await axios.post('http://localhost:3001/api/users/register', userInfo)
         // console.log('newUser in auth creator', newUser.data)
 
         return dispatch({
@@ -31,7 +31,7 @@ export const login = (email, password) => async dispatch => {
     let userInfo = { email, password }
 
     try {
-        let response = await axios.post('http://localhost:4000/api/users/login', userInfo)
+        let response = await axios.post('http://localhost:3001/api/users/login', userInfo)
         localStorage.setItem('userToken', response.data.token)
         return dispatch({ type: 'LOGIN' })
 
