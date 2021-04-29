@@ -1,26 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import './routesMap.css'
 import { connect } from 'react-redux'
+import { Autocomplete } from '@react-google-maps/api';
 import { getDistance, getDuration } from '../../stores/actions/mapActionCreator'
 
-let startLocation = null
-let endLocation = null
-let travelMode = 'DRIVING'
+// let startLocation = { lat: null, lng: null }
+// let endLocation = { lat: null, lng: null }
+// let travelMode = 'DRIVING'
 
 
 const BackUpRoutesMap = (props) => {
     console.log('props in BackUpRoutesMap', props.travelMode)
 
+    const [startPoint, setStartPoint] = useState({ lat: null, lng: null })
+    const [endPoint, setEndPoint] = useState({ lat: null, lng: null })
+    const [travelMode, setTravelMode] = useState("DRIVING")
+
     useEffect(() => {
-        if (props.placeDetail && props.userLocation && props.travelMode) {
+        if (props.placeDetail) {
             console.log('run inside effect')
-            startLocation = { lat: props.userLocation.latitude, lng: props.userLocation.longitude }
-            endLocation = props.placeDetail.geometry.location
-            travelMode = props.travelMode
+            // startLocation = { lat: props.userLocation.latitude, lng: props.userLocation.longitude }
+            // endLocation = props.placeDetail.geometry.location
+            // setStartPoint({ lat: props.userLocation.latitude, lng: props.userLocation.longitude })
+            setEndPoint(props.placeDetail.geometry.location)
+            // travelMode = props.travelMode
             renderMap()
         }
-    }, [props.placeDetail, props.userLocation, props.travelMode])
+    }, [props.placeDetail, startPoint.lat])
 
-    console.log('run outside useEffect startLocation:', startLocation, 'endLocation:', endLocation, 'travelMode:', travelMode)
+    // console.log('run outside useEffect startLocation:', startLocation, 'endLocation:', endLocation, 'travelMode:', travelMode)
 
     // Render Map content
     const renderMap = () => {
@@ -28,6 +36,14 @@ const BackUpRoutesMap = (props) => {
         window.initMap = initMap
     }
 
+    // const createMap = () => {
+    //     var map = new window.google.maps.Map(document.getElementById('map'), {
+    //         center: { lat: 40.7834345, lng: -73.9662495 },
+    //         zoom: 13
+    //     })
+    // }
+
+    // console.log('createMap', createMap)
     // Map content
     const initMap = () => {
         // Create A Map
@@ -47,16 +63,18 @@ const BackUpRoutesMap = (props) => {
 
         // If ther is placeDetail and userLocation, create a route
 
-        if (props.placeDetail && props.userLocation && props.travelMode) {
+        if (startPoint !== null && endPoint !== null) {
             // console.log('startLocation', {lat: props.userLocation.latitude, lng: props.userLocation.longitude}, 'endLocation', props.placeDetail.geometry.location)
-            console.log('run inside init map startLocation', startLocation, 'endLocation', endLocation, 'travelMode:', travelMode)
+            // console.log('run inside init map startLocation', startLocation, 'endLocation', endLocation, 'travelMode:', travelMode)
 
             directionsService.route(
                 {
-                    origin: startLocation,
-                    destination: endLocation,
+                    // origin: startLocation,
+                    // destination: endLocation,
                     // origin: {lat: props.userLocation.latitude, lng: props.userLocation.longitude},
                     // destination: props.placeDetail.geometry.location,
+                    origin: startPoint,
+                    destination: endPoint,
                     travelMode: travelMode,
                 },
                 (response, status) => {
@@ -78,17 +96,48 @@ const BackUpRoutesMap = (props) => {
             )
         }
     }
+    /******************************************************************************************************************************
+    *                     Auto Complete Search Function
+    ******************************************************************************************************************************/
+    const [autocomplete, setAutocomplete] = useState(null)
+
+    const onLoad = (autocomplete) => {
+        setAutocomplete(autocomplete)
+        console.log('autocomplete: ', autocomplete)
+    }
+
+
+    const onPlaceChanged = () => {
+        if (autocomplete !== null) {
+            let place = autocomplete.getPlace()
+            console.log('place lat', place.geometry.location.lat())
+            console.log('place long', place.geometry.location.lng())
+            setStartPoint({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() })
+            // console.log('startLocation inside onPlaceChange', startLocation)
+        } else {
+            console.log('Autocomplete is not loaded yet!')
+        }
+    }
+
+    // console.log('startLocation outside onPlaceChange', startLocation)
 
 
     return (
         <div>
-            {/* <div id='setting' style={{ zindex: 5 }}>
-                <input id='from' />
-                <br />
-                <input id='to' />
-                <br />
-            </div> */}
-            <div id="map" style={{ height: '100vh' }}></div>
+            <div className='directions-wrapper'>
+                <Autocomplete
+                    onLoad={onLoad}
+                    onPlaceChanged={onPlaceChanged}
+                >
+                    <input
+                        className='autocomplete-input'
+                        type="text"
+                        placeholder="Customized your placeholder"
+                    />
+                </Autocomplete>
+
+            </div>
+            <div id="map" className='map-wrapper' style={{ height: '100vh' }}></div>
         </div>
     )
 

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import FavMap from './components/map/FavMap.js'
 import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
-import Filters from './components/filters/Filters'
+// import Filters from './components/filters/Filters'
 import PlaceDetail from './components/placeDetail/PlaceDetail'
 
 function Home(props) {
