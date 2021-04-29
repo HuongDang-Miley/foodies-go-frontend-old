@@ -172,7 +172,7 @@ function FavMap(props) {
 *                     Show Direction
 ******************************************************************************************************************************/
 
-                <DirectionsService
+                {/* <DirectionsService
                     options={{
                         // origin: { centerLocation },
                         // destination: { lat: 40.7386556, lng: -74.02963889999999 },
@@ -181,7 +181,7 @@ function FavMap(props) {
                     }}
                     callback={directionsCallback}
                 />
-                {directions ? <DirectionsRenderer options={{ directions }} /> : null}
+                {directions ? <DirectionsRenderer options={{ directions }} /> : null} */}
 
             </GoogleMap>
         </div>

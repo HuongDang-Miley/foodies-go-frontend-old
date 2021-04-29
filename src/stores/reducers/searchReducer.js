@@ -11,7 +11,6 @@ const initialState = {
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_SEARCH_WORD':
-            console.log(action)
             return {
                 ...state,
                 keyword: action.text
@@ -36,7 +35,7 @@ const searchReducer = (state = initialState, action) => {
             }
 
         case 'SHOW_PLACE_DETAIL':
-            console.log(action.placeDetail)
+            // console.log(action.placeDetail)
             return {
                 ...state,
                 placeDetail: action.placeDetail

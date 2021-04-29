@@ -8,7 +8,7 @@ import { AddToFavorites, deletePlace } from '../../stores/actions/favActionCreat
 
 
 function PlaceDetail(props) {
-    console.log('props in Place Detail', props)
+    // console.log('props in Place Detail', props)
     // ============================================================================================================
     // Set variable
     // ============================================================================================================

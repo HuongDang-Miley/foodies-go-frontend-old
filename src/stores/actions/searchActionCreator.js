@@ -12,7 +12,7 @@ export const getNearbySearch = (keyword, location) => async dispatch => {
     let response = await axios.get(`http://localhost:4000/api/search/near-by-search`, { params: { keyword: keyword, location: location } })
     // frontend
     // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.67,-73.95&radius=1500&keyword=${keyword}&key=${key}`)
-    console.log('response.data', response.data)
+    
     return dispatch({
         type: "SHOW_NEARBY_SEARCH",
         results: response.data.results,  //<== result from google api call frontend/backend 
@@ -74,7 +74,7 @@ export const mouseEnter = (place) => dispatch => {
 }
 
 export const getSearchWord = (keyword) => dispatch => {
-    console.log('keyword in Action Creator', keyword)
+    // console.log('keyword in Action Creator', keyword)
     return dispatch({ type: 'GET_SEARCH_WORD', text: keyword })
 }
 
