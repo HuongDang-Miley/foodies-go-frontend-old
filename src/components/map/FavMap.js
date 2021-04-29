@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import { connect } from "react-redux";
-import { GoogleMap, useLoadScript, Marker, InfoWindow, DirectionsRenderer, DirectionsService } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, InfoWindow, Autocomplete } from '@react-google-maps/api';
 import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 
@@ -93,6 +93,24 @@ function FavMap(props) {
         if (props.showPlaceDetail && props.placeDetail && item.place_id === props.placeDetail.place_id) { return 'favicon.ico' }
         return null
     }
+    /******************************************************************************************************************************
+    *                     AutoComplete Function
+    ******************************************************************************************************************************/
+    const [autocomplete, setAutocomplete] = useState(null)
+    const onLoad = (autocomplete) => {
+        setAutocomplete(autocomplete)
+        console.log('autocomplete: ', autocomplete)
+    }
+
+    const onPlaceChanged = () => {
+        if (autocomplete !== null) {
+            let place = autocomplete.getPlace()
+            console.log('place lat', place.geometry.location.lat())
+            console.log('place long', place.geometry.location.lng())
+        } else {
+            console.log('Autocomplete is not loaded yet!')
+        }
+    }
 
     if (loadError) return 'Error Loading Map'
     if (!isLoaded) return 'Loading Maps'
@@ -169,19 +187,33 @@ function FavMap(props) {
                     </InfoWindow> : null}
 
 /******************************************************************************************************************************
-*                     Show Direction
+*                     Show Autocomplete
 ******************************************************************************************************************************/
 
-                {/* <DirectionsService
-                    options={{
-                        // origin: { centerLocation },
-                        // destination: { lat: 40.7386556, lng: -74.02963889999999 },
-                        // origin: { lat: 40.7681, lng: -74.0208 },
-                        // travelMode: 'DRIVING'
-                    }}
-                    callback={directionsCallback}
-                />
-                {directions ? <DirectionsRenderer options={{ directions }} /> : null} */}
+<Autocomplete
+                    onLoad={onLoad}
+                    onPlaceChanged={onPlaceChanged}
+                >
+                    <input
+                        type="text"
+                        placeholder="Customized your placeholder"
+                        style={{
+                            boxSizing: `border-box`,
+                            border: `1px solid transparent`,
+                            width: `240px`,
+                            height: `32px`,
+                            padding: `0 12px`,
+                            borderRadius: `3px`,
+                            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                            fontSize: `14px`,
+                            outline: `none`,
+                            textOverflow: `ellipses`,
+                            position: "absolute",
+                            left: "50%",
+                            marginLeft: "-120px"
+                        }}
+                    />
+                </Autocomplete>
 
             </GoogleMap>
         </div>

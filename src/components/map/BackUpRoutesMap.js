@@ -7,8 +7,8 @@ let endLocation = null
 let travelMode = 'DRIVING'
 
 
-const BackUpRoutesMap = (props) => {
-    console.log('props in BackUpRoutesMap', props.travelMode)
+const RoutesMap = (props) => {
+    console.log('props in RoutesMap', props.travelMode)
 
     useEffect(() => {
         if (props.placeDetail && props.userLocation && props.travelMode) {
@@ -104,8 +104,8 @@ const mapStateToProps = (state) => {
         duration: state.mapReducer.duration,
     }
 }
-export default connect(mapStateToProps, { getDistance, getDuration })(BackUpRoutesMap)
-// export default BackUpRoutesMap;
+export default connect(mapStateToProps, { getDistance, getDuration })(RoutesMap)
+// export default RoutesMap;
 
 function loadScript(url) {
     var index = window.document.getElementsByTagName("script")[0]
