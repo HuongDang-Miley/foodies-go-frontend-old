@@ -12,7 +12,7 @@ export const getNearbySearch = (keyword, location) => async dispatch => {
     // let response = await axios.get(`http://localhost:3001/api/search/near-by-search/${keyword}`)
     //backend take in keyword and location
     // let response = await axios.get(`http://localhost:3001/api/search/near-by-search`, { params: { keyword: keyword, location: location } }) <== current working 
-    let response = await Axios.get(`search/near-by-search`, { params: { keyword: keyword, location: location } })
+    let response = await Axios.get(`/search/near-by-search`, { params: { keyword: keyword, location: location } })
     // frontend
     // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.67,-73.95&radius=1500&keyword=${keyword}&key=${key}`)
     
@@ -28,7 +28,7 @@ export const getPlaceDetail = (id) => async dispatch => {
     // console.log('placeDetail', placeDetail)
     // backend
     // let response = await axios.get(`http://localhost:3001/api/search/place-detail/${id}`) //<== Request of hardcode currently working
-    let response = await Axios.get(`search/place-detail/${id}`) //<== Request of hardcode 
+    let response = await Axios.get(`/search/place-detail/${id}`) //<== Request of hardcode 
     // frontend
     // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,place_id,geometry,rating,price_level,formatted_phone_number,website,url,vicinity,types,reviews&key=${key}`)
 

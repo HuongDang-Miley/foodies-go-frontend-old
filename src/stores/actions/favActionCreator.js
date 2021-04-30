@@ -18,7 +18,7 @@ export const AddToFavorites = (userId, place) => async dispatch => {
     }
 
     // await axios.post('http://localhost:3001/api/favorites/addToFavorites', { userId: userId, place: addPlace }) //=> currently working
-    await Axios.post('http://localhost:3001/api/favorites/addToFavorites', { userId: userId, place: addPlace })
+    await Axios.post('/favorites/addToFavorites', { userId: userId, place: addPlace })
     return dispatch({
         type: 'ADD_TO_FAVORITES',
         newPlace: place
@@ -35,7 +35,7 @@ export const loadFavorites = (id) => async dispatch => {
 
     //use query not in the link
     // let response = await axios.get('http://localhost:3001/api/favorites/loadFavorites', { params: { userId: id } }) <= currently working
-    let response = await Axios.get('favorites/loadFavorites', { params: { userId: id } })
+    let response = await Axios.get('/favorites/loadFavorites', { params: { userId: id } })
     console.log('response in fvaction Creator', response.data)
 
     return dispatch({
@@ -50,7 +50,7 @@ export const loadFavorites = (id) => async dispatch => {
 
 export const addNote = (favList, userId, placeId, note) => async dispatch => {
 
-    await axios.post('http://localhost:3001/api/favorites/addNote', {
+    await Axios.post('/favorites/addNote', {
         userId: userId,
         placeId: placeId,
         note: note
@@ -74,7 +74,7 @@ export const addNote = (favList, userId, placeId, note) => async dispatch => {
 export const deleteNote = (favList, userId, placeId) => async dispatch => {
 
     // await axios.post('http://localhost:3001/api/favorites/addNote', { //< currently working
-    await Axios.post('favorites/addNote', {
+    await Axios.post('/favorites/addNote', {
         userId: userId,
         placeId: placeId,
         note: null
@@ -98,7 +98,7 @@ export const deleteNote = (favList, userId, placeId) => async dispatch => {
 export const deletePlace = (favList, userId, placeId) => async dispatch => {
     
 
-    await Axios.delete('favorites/deletePlace', {
+    await Axios.delete('/favorites/deletePlace', {
         params: {
             userId: userId,
             placeId: placeId,
