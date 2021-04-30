@@ -10,7 +10,7 @@ export default function App(props) {
   return (
     <Router>
       <Switch>
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
