@@ -7,10 +7,10 @@ export default function LoginModal() {
     return (
         <div className='modal-background'>
             <div className='modal-wrapper'>
-                <button className='close-btn' onClick={()=> history.push('/home')}>x</button>
+                <button className='close-btn' onClick={()=> history.push('/')}>x</button>
                 <p>You Must Login To See Favorites</p>
                 <button onClick={()=> history.push('/login')}>Click Login</button>
-                <button onClick={()=> history.push('/home')}>Cancel</button>
+                <button onClick={()=> history.push('/')}>Cancel</button>
             </div>
         </div>
     )

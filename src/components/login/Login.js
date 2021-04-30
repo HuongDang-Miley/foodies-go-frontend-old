@@ -29,12 +29,12 @@ const Login = (props) => {
         await props.login(emailRef.current.value, passwordRef.current.value)
         emailRef.current.value = ''
         passwordRef.current.value = ''
-        history.push('/home')
+        history.push('/')
     }
 
     return (
         <>
-            {isAuth ? <Redirect to='/home' />
+            {isAuth ? <Redirect to='/' />
                 : <div>
                     <div>This is LOGIN page</div>
                     < form onSubmit={handleLogin} >

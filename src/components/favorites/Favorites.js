@@ -46,7 +46,7 @@ function Favorites(props) {
 
     const logOut = () => {
         localStorage.removeItem('userToken')
-        history.push('/home')
+        history.push('/')
     }
 
 
@@ -56,7 +56,7 @@ function Favorites(props) {
             // Top Nav
             //============================================================================================================ */}
             <div className='topNav-wrapper'>
-                <button><Link to='/home'>Go Back</Link></button>
+                <button><Link to='/'>Go Back</Link></button>
                 <div className='topnav-right-buttons-wrapper'>
                     <p>{username}</p>
                     {isAuth

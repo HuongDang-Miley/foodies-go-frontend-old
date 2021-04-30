@@ -43,13 +43,13 @@ function TopNav(props) {
         props.getNearbySearch(searchRef.current.value, props.userLatLng)
         props.getSearchWord(searchRef.current.value)
         searchRef.current.value = ''
-        history.push('./home')
+        history.push('./')
     }
 
     const logOut = async () => {
         await localStorage.removeItem('userToken')
         setIsAuth(false)
-        history.push('/home')
+        history.push('/')
     }
 
 

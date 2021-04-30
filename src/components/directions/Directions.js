@@ -43,7 +43,7 @@ function Directions(props) {
     return (
         <div>
             <div className='topNav-wrapper'>
-                <button onClick={() => history.push('/home')}>Go Back</button>
+                <button onClick={() => history.push('/')}>Go Back</button>
                 <TopNav />
             </div>
 
