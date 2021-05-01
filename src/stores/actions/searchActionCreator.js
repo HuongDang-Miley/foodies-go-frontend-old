@@ -1,4 +1,5 @@
 import Axios from './Axios.js'
+import axios from 'axios'
 const key = process.env.GOOGLE_API_KEY
 
 
