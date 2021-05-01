@@ -7,22 +7,36 @@ import TopNav from './components/topNav/TopNav.js'
 import Sidebar from './components/sidebar/Sidebar.js'
 // import Filters from './components/filters/Filters'
 import PlaceDetail from './components/placeDetail/PlaceDetail'
+import { togglePlaceDetail } from './stores/actions/searchActionCreator'
 
 function Home(props) {
 
 
-    
+
     // console.log('props in Home', props)
 
     return (
         <div>
             <div className='topNav-wrapper'>
                 <TopNav />
-                
+
             </div>
 
             <div className='map-wrapper'>
-                <HomeMap/>
+                <HomeMap />
+            </div>
+            /******************************************************************************************************************************
+            *       In sidebar, if showPlaceDetail = false, show sidebar else show placeDetail
+            ******************************************************************************************************************************/
+
+            <div className='sidebar-wrapper'>
+                {props.showPlaceDetail
+                    ? <div className='placeDetail-wrapper'>
+                        <button onClick={() => props.togglePlaceDetail(false)}>{`<- Back`}</button>
+                        <PlaceDetail />
+                    </div>
+                    : <Sidebar />
+                }
             </div>
 
             {/* {props.places.length === 0
@@ -32,12 +46,6 @@ function Home(props) {
                 </div>
             } */}
 
-            <div className='sidebar-wrapper'>
-                {props.showPlaceDetail
-                    ? <div className='placeDetail-wrapper'><PlaceDetail /></div>
-                    : <Sidebar />
-                }
-            </div>
 
         </div>
     );
@@ -51,4 +59,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, { togglePlaceDetail })(Home)

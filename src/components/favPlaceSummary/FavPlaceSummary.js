@@ -10,7 +10,7 @@ import { getPlaceDetail, togglePlaceDetail, mouseEnter } from '../../stores/acti
 
 function FavPlaceSummary(props) {
 
-    console.log('props in FavPlaceSummary', props)
+    // console.log('props in FavPlaceSummary', props)
     const history = useHistory()
     let [openAddNoteModal, setOpenAddNoteModal] = useState(false)
     let [openDeleteModal, setOpenDeleteModal] = useState(false)

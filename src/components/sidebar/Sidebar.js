@@ -8,19 +8,19 @@ import { getfilterList, mouseEnter } from '../../stores/actions/searchActionCrea
 
 function Sidebar(props) {
     console.log('props in sidebar', props)
-    let getPosition = () => {
-        navigator.geolocation.getCurrentPosition((position) => console.log(position), () => null)
-        // navigator.geolocation.getCurrentPosition((position) => console.log({
-        //     lat: position.coords.latitude,
-        //     lng: position.coords.longitude,
-        // }), () => null)
-    }
+    // let getPosition = () => {
+    //     navigator.geolocation.getCurrentPosition((position) => console.log(position), () => null)
+    //     // navigator.geolocation.getCurrentPosition((position) => console.log({
+    //     //     lat: position.coords.latitude,
+    //     //     lng: position.coords.longitude,
+    //     // }), () => null)
+    // }
 
 
     return (
         <>
             <div className='filters-bar'>
-                <button onClick={()=> getPosition()} >Get User Position</button>
+                {/* <button onClick={()=> getPosition()} >Get User Position</button> */}
                 <p className='result-text'>{props.places.length} Results</p>
                 <div className='filters'><Filters /></div>
             </div>

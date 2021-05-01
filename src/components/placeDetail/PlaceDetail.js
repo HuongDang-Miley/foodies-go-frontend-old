@@ -66,7 +66,7 @@ IF there is a placeDetail, show it
                     {/* ============================================================================================================
             Back and Add To Favorites Section
             ============================================================================================================ */}
-                    <button onClick={() => props.togglePlaceDetail(false)}>{`<- Back`}</button>
+                    {/* <button onClick={() => props.togglePlaceDetail(false)}>{`<- Back`}</button> */}
                     {showAddToFavBtn
                         ? <button className='add-to-fav-btn' onClick={() => handleAddToFavorites()}>Add To Favorite</button>
                         : <button className='add-to-fav-btn' onClick={() => handleDetelePlace()}>Delete From Favorite</button>

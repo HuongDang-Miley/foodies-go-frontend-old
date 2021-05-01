@@ -59,9 +59,9 @@ function FavMap(props) {
 
     const handleShowPlaceDetail = (id) => {
         console.log('get place id', id)
-        // props.togglePlaceDetail(true)
-        // props.getPlaceDetail(id)
-        // props.mouseEnter(null)
+        props.togglePlaceDetail(true)
+        props.getPlaceDetail(id)
+        props.mouseEnter(null)
         // history.push('/')
     }
 

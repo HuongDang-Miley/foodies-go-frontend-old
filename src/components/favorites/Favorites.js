@@ -11,6 +11,7 @@ import LoginModal from '../modal/LoginModal'
 import './favorites.css'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
 import { mouseEnter } from '../../stores/actions/searchActionCreator'
+import PlaceDetail from '../placeDetail/PlaceDetail'
 
 function Favorites(props) {
 
@@ -81,9 +82,37 @@ function Favorites(props) {
             </div>
 
             {/* //============================================================================================================
-            // Side Bar
+            // Side Bar: 
+            // If user haven't login, show modal to login. 
+            // Default show FavList, if showPlaceDetail = true, show PlaceDetail
             //============================================================================================================  */}
             <div className='favList-wrapper'>
+                {isAuth ?
+                    <>
+                        {props.showPlaceDetail
+                            ? <div className='placeDetail-wrapper'><PlaceDetail /></div>
+                            : <div>
+                                <h3>Favorite List</h3>
+                                {props.favList.length === 0
+                                    ? 'Your favorites list is empty'
+                                    : props.favList.map(place =>
+                                        <FavPlaceSummary
+                                            key={place.place_id}
+                                            disableDeleteModal={disableDeleteModal}
+                                            setDisableDeleteModal={setDisableDeleteModal}
+                                            deletePlace={props.deletePlace}
+                                            deleteNote={props.deleteNote}
+                                            favList={props.favList}
+                                            place={place}
+                                            userId={userId}
+                                            addNote={props.addNote} />)}
+                            </div>
+                        }
+                    </>
+                    : <div>You Must Login To see your favorites<LoginModal /></div>
+                }
+            </div>
+            {/* <div className='favList-wrapper'>
                 {isAuth ?
                     <div>
                         <h3>Favorite List</h3>
@@ -103,7 +132,7 @@ function Favorites(props) {
                     </div>
                     : <div>You Must Login To see your favorites<LoginModal /></div>
                 }
-            </div>
+            </div> */}
         </>
     );
 }
