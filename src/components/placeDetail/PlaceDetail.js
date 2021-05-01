@@ -85,11 +85,11 @@ IF there is a placeDetail, show it
                     <p>Website: {props.placeDetail.website}</p>
                     <p>Address:{props.placeDetail.vicinity}</p>
                     <p>Phone: {props.placeDetail.formatted_phone_number}</p>
-                    {/* <p>{props.placeDetail.opening_hours.open_now ? 'Open Now' : 'Close'}
+                    <p>{props.placeDetail.opening_hours.open_now ? 'Open Now' : 'Close'}
                         <span onClick={() => setShowOpenHour(true)}> Open Hours:  ▼ </span></p>
                     {showOpenHour ?
                         <div>{props.placeDetail.opening_hours.weekday_text.map(item => <p>{item}</p>)}</div>
-                        : null} */}
+                        : null}
                     <h3>Reviews</h3>
 
                     {/* ============================================================================================================

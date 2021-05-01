@@ -4,8 +4,8 @@ const key = process.env.GOOGLE_API_KEY
 
 export const getNearbySearch = (keyword, location) => async dispatch => {
     let response = await Axios.get(`/search/near-by-search`, { params: { keyword: keyword, location: location } })
-    
-    
+
+
     return dispatch({
         type: "SHOW_NEARBY_SEARCH",
         results: response.data.results,  //<== result from google api call frontend/backend 
@@ -14,9 +14,11 @@ export const getNearbySearch = (keyword, location) => async dispatch => {
 
 
 export const getPlaceDetail = (id) => async dispatch => {
-
+    console.log('id in getPlaceDetail', id)
+    
     let response = await Axios.get(`/search/place-detail/${id}`) //<== Request of hardcode 
     
+    console.log('iresponse.data.result in getPlaceDetail', response.data.result)
     return dispatch({
         type: 'SHOW_PLACE_DETAIL',
         placeDetail: response.data.result  //<== result from google api call frontend/backend 
