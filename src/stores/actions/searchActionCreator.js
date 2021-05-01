@@ -3,7 +3,8 @@ const key = process.env.GOOGLE_API_KEY
 
 
 export const getNearbySearch = (keyword, location) => async dispatch => {
-    let response = await Axios.get(`/search/near-by-search`, { params: { keyword: keyword, location: location } })
+    // let response = await Axios.get(`/search/near-by-search`, { params: { keyword: keyword, location: location } })
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.67,-73.95&radius=1500&keyword=${keyword}&key=${key}`)
     
     return dispatch({
         type: "SHOW_NEARBY_SEARCH",
@@ -14,7 +15,8 @@ export const getNearbySearch = (keyword, location) => async dispatch => {
 
 export const getPlaceDetail = (id) => async dispatch => {
 
-    let response = await Axios.get(`/search/place-detail/${id}`) //<== Request of hardcode 
+    // let response = await Axios.get(`/search/place-detail/${id}`) //<== Request of hardcode 
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,place_id,geometry,rating,price_level,formatted_phone_number,website,url,vicinity,types,reviews&key=${key}`)
 
     return dispatch({
         type: 'SHOW_PLACE_DETAIL',
