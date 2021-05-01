@@ -1,31 +1,34 @@
 import Axios from './Axios.js'
 import axios from 'axios'
+let key = process.env.REACT_APP_GEOLOCATION_DB_KEY
 
+//=============================================================================================
 //=============================================================================================
 
 export const register = (username, email, password) => async dispatch => {
     let userInfo = { username, email, password };
     try {
         let newUser = await Axios.post('/users/register', userInfo)
-        // console.log('newUser in auth creator', newUser.data)
 
         return dispatch({
             type: 'REGISTER',
             registerMessage: newUser.data.message,
-            user: newUser.data.newUser
+            // user: newUser.data.newUser
         })
+    
 
     } catch (error) {
         if (error.response.status === 409) {
             return dispatch({
                 type: 'REGISTER',
-                registerMessage: 'Conflict',
+                registerMessage: 'Email already exist. Try again or Login',
             })
         }
         throw (error)
     }
 }
 
+//=============================================================================================
 //=============================================================================================
 
 export const login = (email, password) => async dispatch => {
@@ -35,12 +38,10 @@ export const login = (email, password) => async dispatch => {
         let response = await Axios.post('/users/login', userInfo)
 
         if (response.data.status === 500 || response.data.status === 409) {
-            return dispatch({ type: 'LOGIN', errorMessage: response.data.message })
+            return dispatch({ type: 'HANDLE_ERROR_MESSAGE', errorMessage: response.data.message })
         } else {
             localStorage.setItem('userToken', response.data.token)
         }
-
-        // return dispatch({ type: 'LOGIN' })
 
     } catch (error) { throw (error) }
 }
@@ -49,9 +50,9 @@ export const handleErrorMessage = (message) => dispatch => {
     return dispatch({ type: 'HANDLE_ERROR_MESSAGE', errorMessage: message })
 }
 
-export const getUserLocation = (location) => async dispatch => {
-    let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
-    // console.log('response.data in action creator', response.data)
+export const getUserLocation = () => async dispatch => {
+    let response = await axios.get(`https://geolocation-db.com/json/${key}`)
+
     return dispatch({
         type: "GET_USER_LOCATION",
         userLocation: response.data,

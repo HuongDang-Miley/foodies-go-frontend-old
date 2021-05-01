@@ -8,20 +8,26 @@ const Login = (props) => {
     let emailRef = useRef()
     let passwordRef = useRef()
 
-    //=========================== Check if there is a token ===========================
+    
+    //=================================================================================
+    // Check if there is a token. If yes, page redirect to home
+    //=================================================================================
     let history = useHistory();
     let [isAuth, setIsAuth] = useState(false)
 
 
     useEffect(() => {
         let userToken = localStorage.getItem('userToken')
-
         if (userToken) {
             setIsAuth(true)
         } else {
             setIsAuth(false)
         }
     }, [])
+
+    //=================================================================================
+    // When click login, if token is retrieved, redirect home and set errorMessage to null
+    //=================================================================================
 
     const handleLogin = async (event) => {
         event.preventDefault()
@@ -31,7 +37,6 @@ const Login = (props) => {
         await props.login(emailRef.current.value, passwordRef.current.value)
 
         let userToken = await localStorage.getItem('userToken')
-
 
         if (userToken) {
             setIsAuth(true)
@@ -44,14 +49,13 @@ const Login = (props) => {
 
     }
 
-    console.log('isAuth', isAuth)
     return (
         <>
             <Link to='/'>{`<- Go Home`}</Link>
             {isAuth ? <Redirect to='/' />
                 : <div>
                     <div>This is LOGIN page</div>
-                    <p>props.loginMessage: {props.loginMessage}</p>
+                    <p>props.errorMessage: {props.errorMessage}</p>
                     < form onSubmit={handleLogin} >
                         <input ref={emailRef} placeholder='email' type='email'></input>
                         <input ref={passwordRef} placeholder='password' type='password'></input>
@@ -67,7 +71,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loginMessage: state.authReducer.loginMessage
+        errorMessage: state.authReducer.errorMessage
     }
 }
 export default connect(mapStateToProps, { login, handleErrorMessage })(Login);

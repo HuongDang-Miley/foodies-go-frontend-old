@@ -1,7 +1,7 @@
 const initialState = {
     isAuth: false,
     registerMessage: "",
-    loginMessage: "",
+    errorMessage: "",
     user: {},
     userLocation: null,
     userLatLng: null,
@@ -14,7 +14,8 @@ const authReducer = (state = initialState, action) => {
             console.log(action)
             return {
                 state,
-                loginMessage: action.errorMessage
+                errorMessage: action.errorMessage,
+                successMessage: action.successMessage,
             }
 
         case "GET_USER_LOCATION":
@@ -24,12 +25,12 @@ const authReducer = (state = initialState, action) => {
                 userLocation: action.userLocation,
                 userLatLng: action.userLatLng
             }
-        case "LOGIN":
-            console.log('action from login', action)
-            return {
-                ...state,
-                loginMessage: action.errorMessage
-            }
+        // case "LOGIN":
+        //     console.log('action from login', action)
+        //     return {
+        //         ...state,
+        //         errorMessage: action.errorMessage
+        //     }
         case 'REGISTER':
             console.log(action)
             return {
