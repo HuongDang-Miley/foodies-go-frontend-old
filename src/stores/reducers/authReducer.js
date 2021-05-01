@@ -1,6 +1,7 @@
 const initialState = {
     isAuth: false,
     registerMessage: "",
+    loginMessage: "",
     user: {},
     userLocation: null,
     userLatLng: null,
@@ -8,6 +9,13 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case 'HANDLE_ERROR_MESSAGE':
+            console.log(action)
+            return {
+                state,
+                loginMessage: action.errorMessage
+            }
 
         case "GET_USER_LOCATION":
             // console.log('action from get user location', action)
@@ -17,12 +25,10 @@ const authReducer = (state = initialState, action) => {
                 userLatLng: action.userLatLng
             }
         case "LOGIN":
-            // console.log('action from login', action)
+            console.log('action from login', action)
             return {
                 ...state,
-                // user: action.user,
-                // isAuth: action.isAuth
-                // isAuth: true
+                loginMessage: action.errorMessage
             }
         case 'REGISTER':
             console.log(action)
