@@ -2,8 +2,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { connect } from "react-redux";
 import { GoogleMap, useLoadScript, Marker, InfoWindow, Autocomplete } from '@react-google-maps/api';
-import { getNearbySearch, getPlaceDetail, togglePlaceDetail } from '../../stores/actions/searchActionCreator'
+import { getNearbySearch, getPlaceDetail, togglePlaceDetail, mouseEnter } from '../../stores/actions/searchActionCreator'
 import { getUserLocation } from '../../stores/actions/authActionCreator'
+
 
 
 const libraries = ['places']
@@ -16,6 +17,7 @@ const center = {
     lat: 40.7834345,
     lng: -73.9662495
 }
+
 
 
 function FavMap(props) {
@@ -53,16 +55,13 @@ function FavMap(props) {
     }, [props.userLocation])
 
 
-    const directionsCallback = (response) => {
-        console.log(response)
-        if (response !== null) {
-            if (response.status === 'OK') {
-                setDirections(response)
-            } else {
-                console.log('response: ', response)
-            }
-        }
+
+    const handleShowPlaceDetail = (id) => {
+        props.togglePlaceDetail(true)
+        props.getPlaceDetail(id)
+        props.mouseEnter(null)
     }
+
 
     // const onMapCLick = useCallback((event) => {
     //     const newLocation = `${event.latLng.lat()},${event.latLng.lng()}`
@@ -89,8 +88,8 @@ function FavMap(props) {
 
 
     const changeMarkerIcon = (item) => {
-        if (props.hoveredPlace && item.place_id === props.hoveredPlace.place_id) { return 'favicon.ico' }
-        if (props.showPlaceDetail && props.placeDetail && item.place_id === props.placeDetail.place_id) { return 'favicon.ico' }
+        if (props.hoveredPlace && item.place_id === props.hoveredPlace.place_id) { return 'selected-marker.svg' }
+        if (props.showPlaceDetail && props.placeDetail && item.place_id === props.placeDetail.place_id) { return 'selected-marker.svg' }
         return null
     }
     /******************************************************************************************************************************
@@ -135,7 +134,8 @@ function FavMap(props) {
                 {props.userLocation ?
                     <>
                         <Marker
-                            icon='favicon.ico'
+                            icon='current-location-marker.png'
+                            // icon='favicon.ico'
                             position={centerLocation}
                             onClick={() => {
                                 setUserAddress(props.userLocation)
@@ -176,6 +176,7 @@ function FavMap(props) {
 
                 {selected ?
                     <InfoWindow
+                        onClick={() => handleShowPlaceDetail()}
                         onCloseClick={() => { setSelected(null) }}
                         position={selected.geometry.location}
                     >
