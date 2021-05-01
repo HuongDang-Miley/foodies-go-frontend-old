@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
-import './favPlaceDetail.css'
+import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom';
+import './favPlaceSummary.css'
 import AddNoteModal from '../modal/AddNoteModal'
 import DeleteModal from '../modal/DeleteModal'
+import { AddToFavorites } from '../../stores/actions/favActionCreator'
+import { getPlaceDetail, togglePlaceDetail, mouseEnter } from '../../stores/actions/searchActionCreator'
 
-export default function FavPlaceDetail(props) {
+
+function FavPlaceSummary(props) {
+
+    console.log('props in FavPlaceSummary', props)
+    const history = useHistory()
     let [openAddNoteModal, setOpenAddNoteModal] = useState(false)
     let [openDeleteModal, setOpenDeleteModal] = useState(false)
-    
+
 
     return (
         <div className='fav-place-detail-wrapper'>
@@ -14,14 +22,18 @@ export default function FavPlaceDetail(props) {
                 ? <button className='delete-btn' onClick={() => props.deletePlace(props.favList, props.userId, props.place.place_id)}>Delete From Favorites outside ternary</button>
                 : <button className='delete-btn' onClick={() => setOpenDeleteModal(true)}>Delete From Favorites</button>
             }
-
-            <p>{props.place.name}</p>
-            <p>{props.place.rating}</p>
-            <p>{props.place.price_level}</p>
-            <p>{props.place.website}</p>
-            <p>{props.place.vicinity}</p>
-            <p>{props.place.formatted_phone_number}</p>
-            <p>{props.place.note}</p>
+            <div
+                // onClick={() => handleShowPlaceDetail(props.place.place_id)}
+                onMouseEnter={() => props.mouseEnter(props.place)}
+            >
+                <p>{props.place.name}</p>
+                <p>{props.place.rating}</p>
+                <p>{props.place.price_level}</p>
+                <p>{props.place.website}</p>
+                <p>{props.place.vicinity}</p>
+                <p>{props.place.formatted_phone_number}</p>
+                <p>{props.place.note}</p>
+            </div>
             <button onClick={() => setOpenAddNoteModal(true)}>{props.place.note === null ? "Add Note" : "Edit Note"}</button>
             {props.place.note === null
                 ? null
@@ -50,4 +62,10 @@ export default function FavPlaceDetail(props) {
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        favList: state.favReducer.favList,
+    }
+}
 
+export default connect(mapStateToProps, { AddToFavorites, getPlaceDetail, togglePlaceDetail, mouseEnter })(FavPlaceSummary)

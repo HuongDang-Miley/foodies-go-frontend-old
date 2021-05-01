@@ -1,6 +1,5 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
 import { connect } from "react-redux";
 import { GoogleMap, useLoadScript, Marker, InfoWindow, Autocomplete } from '@react-google-maps/api';
 import { getNearbySearch, getPlaceDetail, togglePlaceDetail, mouseEnter } from '../../stores/actions/searchActionCreator'
@@ -21,15 +20,15 @@ const center = {
 
 
 
-function FavMap(props) {
-    // console.log('props location in FavMap', props)
+function HomeMap(props) {
+    console.log('props.userLocation location in HomeMap', props)
 
     /******************************************************************************************************************************
     *                   Declare vairable
     ******************************************************************************************************************************/
 
 
-    let history = useHistory()
+
     // const [center, setCenter] = useState(null)
     // const [marker, setMaker] = useState(null)
     let [directions, setDirections] = useState("");
@@ -58,11 +57,9 @@ function FavMap(props) {
 
 
     const handleShowPlaceDetail = (id) => {
-        console.log('get place id', id)
-        // props.togglePlaceDetail(true)
-        // props.getPlaceDetail(id)
-        // props.mouseEnter(null)
-        // history.push('/')
+        props.togglePlaceDetail(true)
+        props.getPlaceDetail(id)
+        props.mouseEnter(null)
     }
 
 
@@ -73,7 +70,7 @@ function FavMap(props) {
     //     // props.getNearbySearch(props.keyword, newLocation)
     //     console.log('newLocation', newLocation)
     //     console.log('keyword', keyword)
-    //     // console.log('props.favList', props.favList)
+    //     // console.log('props.places', props.places)
     // }, [])
 
     const clickMap = (event) => {
@@ -87,7 +84,6 @@ function FavMap(props) {
     const handleShowInfoWindow = (id) => {
         props.togglePlaceDetail(true)
         props.getPlaceDetail(id)
-        
     }
 
 
@@ -96,11 +92,24 @@ function FavMap(props) {
         if (props.showPlaceDetail && props.placeDetail && item.place_id === props.placeDetail.place_id) { return 'selected-marker.svg' }
         return null
     }
-
-
     /******************************************************************************************************************************
-    *                     Check Isloaded
+    *                     AutoComplete Function
     ******************************************************************************************************************************/
+    const [autocomplete, setAutocomplete] = useState(null)
+    const onLoad = (autocomplete) => {
+        setAutocomplete(autocomplete)
+        console.log('autocomplete: ', autocomplete)
+    }
+
+    const onPlaceChanged = () => {
+        if (autocomplete !== null) {
+            let place = autocomplete.getPlace()
+            console.log('place lat', place.geometry.location.lat())
+            console.log('place long', place.geometry.location.lng())
+        } else {
+            console.log('Autocomplete is not loaded yet!')
+        }
+    }
 
     if (loadError) return 'Error Loading Map'
     if (!isLoaded) return 'Loading Maps'
@@ -109,11 +118,13 @@ function FavMap(props) {
     *                     Return Map
     ******************************************************************************************************************************/
     return (
-        <div className="FavMap">
+        <div className="HomeMap">
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 zoom={13}
                 center={centerLocation}
+                // center={center}
+                // onClick={onMapCLick}
                 onClick={clickMap}
             >
 
@@ -147,7 +158,7 @@ function FavMap(props) {
 *                     Show PlaceDetail marker and InfoWindow if clicked
 ******************************************************************************************************************************/
 
-                {props.favList.map((item) =>
+                {props.places.map((item) =>
                     <Marker
                         key={item.place_id}
                         icon={changeMarkerIcon(item)}
@@ -176,6 +187,34 @@ function FavMap(props) {
                         </div>
                     </InfoWindow> : null}
 
+/******************************************************************************************************************************
+*                     Show Autocomplete
+******************************************************************************************************************************/
+
+<Autocomplete
+                    onLoad={onLoad}
+                    onPlaceChanged={onPlaceChanged}
+                >
+                    <input
+                        type="text"
+                        placeholder="Customized your placeholder"
+                        style={{
+                            boxSizing: `border-box`,
+                            border: `1px solid transparent`,
+                            width: `240px`,
+                            height: `32px`,
+                            padding: `0 12px`,
+                            borderRadius: `3px`,
+                            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                            fontSize: `14px`,
+                            outline: `none`,
+                            textOverflow: `ellipses`,
+                            position: "absolute",
+                            left: "50%",
+                            marginLeft: "-120px"
+                        }}
+                    />
+                </Autocomplete>
 
             </GoogleMap>
         </div>
@@ -184,7 +223,7 @@ function FavMap(props) {
 
 const mapStateToProps = (state) => {
     return {
-        favList: state.favReducer.favList,
+        places: state.searchReducer.places,
         showPlaceDetail: state.searchReducer.showPlaceDetail,
         placeDetail: state.searchReducer.placeDetail,
         hoveredPlace: state.searchReducer.hoveredPlace,
@@ -193,5 +232,16 @@ const mapStateToProps = (state) => {
         userLatLng: state.authReducer.userLatLng
     }
 }
-export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(FavMap)
+export default connect(mapStateToProps, { getNearbySearch, getPlaceDetail, togglePlaceDetail, getUserLocation })(HomeMap)
 
+// SAVE CODE
+// export default HomeMap;
+
+/* {props.placeDetail && props.showPlaceDetail && showPlaceDetailInfoWindow ?
+                    <InfoWindow position={props.placeDetail.geometry.location}>
+                        <div>
+                            <h3>{props.placeDetail.name}</h3>
+                            <h3>{props.placeDetail.rating}</h3>
+                        </div>
+                    </InfoWindow>
+                    : null} */
