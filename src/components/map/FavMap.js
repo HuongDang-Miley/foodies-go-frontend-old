@@ -21,7 +21,7 @@ const center = {
 
 
 function FavMap(props) {
-    // console.log('props location in FavMap', props)
+    console.log('props.userLocation location in FavMap', props.userLocation)
 
     /******************************************************************************************************************************
     *                   Declare vairable
@@ -143,14 +143,14 @@ function FavMap(props) {
                                 // setShowPlaceDetailInfoWindow(false)
                             }}
                         />
-                        {userAddress ?
+                        {/* {userAddress ?
                             <InfoWindow
                                 position={centerLocation}
                                 onCloseClick={() => { setUserAddress(null) }}
                             ><div>
                                     <p>My Location:</p>
                                     <p>{`${userAddress.city}  ${userAddress.state}, ${userAddress.postal} ${userAddress.country_code}`}</p>
-                                </div></InfoWindow> : null}
+                                </div></InfoWindow> : null} */}
                     </> : null
                 }
 

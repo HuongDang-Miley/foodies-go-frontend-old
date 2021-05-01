@@ -19,7 +19,7 @@ const authReducer = (state = initialState, action) => {
             }
 
         case "GET_USER_LOCATION":
-            // console.log('action from get user location', action)
+            console.log('action from get user location', action)
             return {
                 ...state,
                 userLocation: action.userLocation,

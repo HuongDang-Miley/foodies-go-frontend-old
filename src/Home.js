@@ -9,12 +9,15 @@ import PlaceDetail from './components/placeDetail/PlaceDetail'
 
 function Home(props) {
 
+
+    
     // console.log('props in Home', props)
 
     return (
         <div>
             <div className='topNav-wrapper'>
                 <TopNav />
+                
             </div>
 
             <div className='map-wrapper'>
