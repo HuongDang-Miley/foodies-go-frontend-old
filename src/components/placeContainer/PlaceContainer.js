@@ -34,7 +34,7 @@ function PlaceContainer(props) {
                 <p>Total Ratings:{props.place.user_ratings_total}</p>
                 <p>Price:{props.place.price_level}</p>
                 <p>{props.place.vicinity}, {props.place.plus_code.compound_code}</p>
-                {/* <p>{businessStatus(props.place)}</p> */}
+                <p>{businessStatus(props.place)}</p>
             </div>
         </div>
     )
