@@ -50,36 +50,31 @@ export const handleErrorMessage = (message) => dispatch => {
     return dispatch({ type: 'HANDLE_ERROR_MESSAGE', errorMessage: message })
 }
 
-export const getUserLocation = () => dispatch => {
-    // let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
-    // let response = await axios.get(`https://geolocation-db.com/json/${key}`)
-    // let userLatLng = {}
-
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            console.log('userLocation: in getUserlocation', { lat: position.coords.latitude, lng: position.coords.longitude })
-            return dispatch({
-                type: "GET_USER_LOCATION",
-                userLocation: { lat: position.coords.latitude, lng: position.coords.longitude },
-            })
-        },
-        () => null)
-
-
-    // return dispatch({
-    //     type: "GET_USER_LOCATION",
-    //     userLocation: userLatLng,
-    //     userLatLng: userLatLng
-    // })
-}
-
-// export const getUserLocation = () => async dispatch => {
-//     // let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
-//     let response = await axios.get(`https://geolocation-db.com/json/${key}`)
-
-//     return dispatch({
-//         type: "GET_USER_LOCATION",
-//         userLocation: response.data,
-//         userLatLng: `${response.data.latitude},${response.data.longitude}`
-//     })
+// //=============================================================================================
+// // Use browser location method
+// //=============================================================================================
+// export const getUserLocation = () => dispatch => {
+//     navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//             console.log('userLocation: in getUserlocation', { lat: position.coords.latitude, lng: position.coords.longitude })
+//             return dispatch({
+//                 type: "GET_USER_LOCATION",
+//                 userLocation: { lat: position.coords.latitude, lng: position.coords.longitude },
+//             })
+//         },
+//         () => null)
 // }
+
+// =============================================================================================
+// Use geolocation-db.com
+// =============================================================================================
+export const getUserLocation = () => async dispatch => {
+    // let response = await axios.get('https://geolocation-db.com/json/f9902210-97f0-11eb-a459-b997d30983f1')
+    let response = await axios.get(`https://geolocation-db.com/json/${key}`)
+
+    return dispatch({
+        type: "GET_USER_LOCATION",
+        userLocation: response.data,
+        userLatLng: `${response.data.latitude},${response.data.longitude}`
+    })
+}
